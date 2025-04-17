@@ -1,4 +1,4 @@
-package com.lington;
+package com.lington.config;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
