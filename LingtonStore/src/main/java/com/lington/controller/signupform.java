@@ -1,6 +1,11 @@
 package com.lington.controller;
+import java.io.IOException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class signupController
@@ -21,7 +26,7 @@ public class signupform extends HttpServlet {
      */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        request.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/page/Login.jsp").forward(request, response);
     }
 	/**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -86,7 +91,7 @@ public class signupform extends HttpServlet {
 	        if (isValid) {
 	            // If valid, you can proceed with further processing (e.g., saving to database)
 	            response.getWriter().write("Registration ful!");
-	            request.getRequestDispatcher("/WEB-INF/pages/Login.jsp").forward(request, response);
+	            request.getRequestDispatcher("/WEB-INF/page/Login.jsp").forward(request, response);
 	            
 	        } else {
 	            // If not valid, send error message back to the user
