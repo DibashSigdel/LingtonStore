@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
  * Servlet implementation class signupController
  * @author Adrian Poudyal
  */
-@WebServlet(asyncSupported = true, urlPatterns = {"/signupcontroller"})
+@WebServlet(asyncSupported = true, urlPatterns = {"/signupform"})
 public class signupform extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	/**
