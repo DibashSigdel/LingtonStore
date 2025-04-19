@@ -5,9 +5,9 @@ import java.time.LocalDate;
 
 import com.lington.Model.usermodel;
 import com.lington.service.signupservice;
-//import com.lington.util.ImageUtil;
-//import com.lington.util.PasswordUtil;
-//import com.lington.util.ValidationUtil;
+import com.lington.util.PasswordUtil;
+import com.lington.util.ValidationUtil;
+import com.lington.util.ImageUtil;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -28,13 +28,13 @@ public class signupcontroller extends HttpServlet {
     private final signupservice signupService = new signupservice();
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.getRequestDispatcher("/WEB-INF/pages/signup.jsp").forward(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         try {
             String validationError = validateSignupForm(req);
@@ -68,7 +68,7 @@ public class signupcontroller extends HttpServlet {
     }
 
     private String validateSignupForm(HttpServletRequest req) throws IOException, ServletException {
-        
+       
         String username = req.getParameter("username");
         String firstName = req.getParameter("firstName");
         String lastName = req.getParameter("lastName");
@@ -140,7 +140,7 @@ public class signupcontroller extends HttpServlet {
         return imageUtil.uploadImage(image, req.getServletContext().getRealPath("/"), "user");
     }
 
-    private void handleSuccess(HttpServletRequest req, HttpServletResponse resp, 
+    private void handleSuccess(HttpServletRequest req, HttpServletResponse resp,
                              String message, String redirectPage)
             throws ServletException, IOException {
         req.setAttribute("success", message);
