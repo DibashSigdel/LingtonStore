@@ -31,19 +31,39 @@
 					<button type="submit" value="Login" class="Loginbtn">Login</button>
 					
 				</form>
-				<form action="signupform" class="sign-up-form">
+				<form action="signupform" method= "post" class="sign-up-form">
 					<h2 class="title">Sign up</h2>
 					<div class="input-field">
 						<i class="fas fa-user"></i>
-						<input type="text" placeholder="Username" />
+						<input type="text" id="Username" name="Username" placeholder="Username" />
 					</div>
 					<div class="input-field">
 						<i class="fas fa-envelope"></i>
-						<input type="email" placeholder="Email" />
+						<input type="text" id="FirstName" name="FirstName" placeholder="FirstName" />
+					</div>
+					<div class="input-field">
+						<i class="fas fa-envelope"></i>
+						<input type="text" id="LastName" name="LastName" placeholder="LastName" />
+					</div>
+					<div class="input-field">
+						<i class="fas fa-envelope"></i>
+						<input type="date" id="Birthday" name="Birthday" placeholder="Birthday" />
+					</div>
+					<div class="input-field">
+						<i class="fas fa-envelope"></i>
+						<input type="text" id="Gender" name="Gender" placeholder="Gender" />
+					</div>
+					<div class="input-field">
+						<i class="fas fa-envelope"></i>
+						<input type="email" id="Email" name="Email" placeholder="Email" />
+					</div>
+					<div class="input-field">
+						<i class="fas fa-envelope"></i>
+						<input type="text" id="Phone" name="Phone" placeholder="Phone" />
 					</div>
 					<div class="input-field">
 						<i class="fas fa-lock"></i>
-						<input type="password" placeholder="Password" />
+						<input type="password" id="Password" name="Password" placeholder="Password" />
 					</div>
 					<button type="submit" class="Signupbtn" value="Sign up" >Signup</button>
 			
@@ -58,7 +78,7 @@
 					<h3>New here ?</h3>
 					<p>
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-						ex ratione. Aliquid! manish is lama. Hello Its me NK BOY.
+						ex ratione. Aliquid! manish is lama. Hello Its me .
 					</p>
 					<button class="btn transparent" id="sign-up-btn">
 						Sign up

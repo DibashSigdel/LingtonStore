@@ -33,14 +33,14 @@ public class signupform extends HttpServlet {
      */
 	 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	        // Retrieve form data (matching HTML input field names)
-	        String firstName = request.getParameter("firstName");  // Updated to match HTML field name
-	        String lastName = request.getParameter("lastName");    // Updated to match HTML field name
-	        String username = request.getParameter("username");
-	        String dob = request.getParameter("birthday");         // Changed to "birthday" as per HTML form field
-	        String gender = request.getParameter("gender");
-	        String email = request.getParameter("email");          // Updated to match HTML field name
-	        String phoneNumber = request.getParameter("phone");    // Updated to match HTML field name
-	        String password = request.getParameter("password");
+	        String firstName = request.getParameter("FirstName");  // Updated to match HTML field name
+	        String lastName = request.getParameter("LastName");    // Updated to match HTML field name
+	        String username = request.getParameter("Username");
+	        String dob = request.getParameter("Birthday");         // Changed to "birthday" as per HTML form field
+	        String gender = request.getParameter("Gender");
+	        String email = request.getParameter("Email");          // Updated to match HTML field name
+	        String phoneNumber = request.getParameter("Phone");    // Updated to match HTML field name
+	        String password = request.getParameter("Password");
 	      //  String retypePassword = request.getParameter("retypePassword");  // Updated to match HTML field name
 
 	        // Perform validation
