@@ -17,6 +17,7 @@ public class signupservice {
      */
     public signupservice() {
         try {
+        	
             this.dbConn = dbconfig.getDbConnection();
         } catch (SQLException | ClassNotFoundException ex) {
             System.err.println("Database connection error: " + ex.getMessage());
@@ -35,8 +36,9 @@ public class signupservice {
             System.err.println("Database connection is not available.");
             return null;
         }
+        System.out.println("hello bishes");
 
-        String insertQuery = "INSERT INTO users (username, first_name, last_name, gender, dob, email, password, phone_number) "
+        String insertQuery = "INSERT INTO user (username, first_name, last_name, Gender, Dob, email, password, phone_number) "
                            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement stmt = dbConn.prepareStatement(insertQuery)) {

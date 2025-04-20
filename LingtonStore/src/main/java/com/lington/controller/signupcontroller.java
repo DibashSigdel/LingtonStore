@@ -1,4 +1,4 @@
-package com.lington.config;
+package com.lington.controller;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -30,7 +30,7 @@ public class signupcontroller extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/pages/signup.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/page/Login.jsp").forward(req, resp);
     }
 
     @Override
@@ -158,6 +158,6 @@ public class signupcontroller extends HttpServlet {
         req.setAttribute("dob", req.getParameter("dob"));
         req.setAttribute("email", req.getParameter("email"));
         req.setAttribute("phoneNumber", req.getParameter("phoneNumber"));
-        req.getRequestDispatcher("/WEB-INF/pages/signup.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/page/Login.jsp").forward(req, resp);
     }
 }
