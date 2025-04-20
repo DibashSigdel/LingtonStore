@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 
-@WebServlet(urlPatterns = { "/signup" })
+@WebServlet(urlPatterns = { "/signupcontroller" })
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2,
                  maxFileSize = 1024 * 1024 * 10,
                  maxRequestSize = 1024 * 1024 * 50)
