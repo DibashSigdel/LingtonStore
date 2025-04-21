@@ -56,7 +56,7 @@
 					</div>
 					<div class="input-field">
 						<i class="fas fa-envelope"></i>
-						<input type="date" id="Birthday" name="Birthday" value="Birthday" placeholder="Birthday" />
+						<input type="date" id="Birthday" name="dob" value="Birthday" placeholder="Birthday" />
 					</div>
 					<div class="input-field">
 						<i class="fas fa-envelope"></i>
@@ -72,7 +72,7 @@
 					</div>
 					<div class="input-field">
 						<i class="fas fa-lock"></i>
-						<input type="password" id="Password" value="PasswordGender" name="Password" placeholder="Password" />
+						<input type="password" id="Password"  name="Password" placeholder="Password" />
 					</div>
 					<button type="submit" class="Signupbtn" value="Sign up" >Signup</button>
 			

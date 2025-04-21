@@ -33,7 +33,7 @@ public class usermodel {
         this.password = password;
     }
 
-    // Full constructor with ID (for fetch/update)
+/*    // Full constructor with ID (for fetch/update)
     public usermodel(int id, String firstName, String lastName, String username, LocalDate dob, String gender,
                      String email, String phoneNumber, String password) {
         this.id = id;
@@ -55,7 +55,7 @@ public class usermodel {
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
-
+*/
     // Getters and Setters
 
     public int getId() {
