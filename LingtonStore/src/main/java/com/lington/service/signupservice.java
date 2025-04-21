@@ -42,7 +42,7 @@ public class signupservice {
             pstmt.setDate(4, Date.valueOf(user.getDob()));
             pstmt.setString(6, user.getEmail());
             pstmt.setString(8, user.getPassword());
-            pstmt.setString(7,user.getPhoneNumber()); // 🔥 fixed line
+            pstmt.setString(7,user.getPhoneNumber()); // 
 
             int rows = pstmt.executeUpdate();
             return rows > 0;

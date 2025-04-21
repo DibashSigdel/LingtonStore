@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +31,9 @@
 					<button type="submit" value="Login" class="Loginbtn">Login</button>
 					
 				</form> 
-				
+				<c:if test="${not empty error}">
+    <div style="color: red;">${error}</div>
+</c:if>
 				   <!--  String firstName = request.getParameter("FirstName");  // Updated to match HTML field name
 	        String lastName = request.getParameter("LastName");    // Updated to match HTML field name
 	        String username = request.getParameter("Username");
