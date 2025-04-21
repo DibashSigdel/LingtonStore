@@ -1,0 +1,134 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard - Lington Store</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/Adminpannel.css" />
+</head>
+<body>
+
+  <div class="top-banner">Free shipping on orders over Rs.1000 Use code: LINGTONSKIRANA</div>
+
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="logo"><img src="./Screenshot_2025-04-17_185040-removebg-preview.png" alt="Logo"></div>
+      <nav class="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="/product.html">Shop</a>
+        <a href="./registration.html">Register</a>
+        <a href="./aboutus.html">About Us</a>
+        <a href="/signin.html">Login/Signin</a>
+      </nav>
+      <div class="search">
+        <input type="text" placeholder="Search product">
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1 class="dashboard-header">Admin Dashboard</h1>
+
+    <div class="summary-cards">
+      <div class="card">
+        <h3>Total Users</h3>
+        <p>356</p>
+      </div>
+      <div class="card">
+        <h3>Total Orders</h3>
+        <p>742</p>
+      </div>
+      <div class="card">
+        <h3>Total Products</h3>
+        <p>132</p>
+      </div>
+      <div class="card">
+        <h3>Low Stock Items</h3>
+        <p>7</p>
+      </div>
+    </div>
+
+    <div class="table-section">
+      <h3>Recent Orders</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>User</th>
+            <th>Items</th>
+            <th>Total</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#ORD1001</td>
+            <td>manish123</td>
+            <td>3</td>
+            <td>Rs. 1220</td>
+            <td>Delivered</td>
+          </tr>
+          <tr>
+            <td>#ORD1002</td>
+            <td>nkboy</td>
+            <td>2</td>
+            <td>Rs. 890</td>
+            <td>Pending</td>
+          </tr>
+          <tr>
+            <td>#ORD1003</td>
+            <td>dibasKTM</td>
+            <td>5</td>
+            <td>Rs. 1995</td>
+            <td>Shipped</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-section">
+      <h3>System Status</h3>
+      <table>
+        <tr>
+          <th>Service</th>
+          <th>Status</th>
+        </tr>
+        <tr>
+          <td>Payment Gateway</td>
+          <td style="color:green;">✔ Running</td>
+        </tr>
+        <tr>
+          <td>Database</td>
+          <td style="color:green;">✔ Connected</td>
+        </tr>
+        <tr>
+          <td>Inventory Sync</td>
+          <td style="color:orange;">⚠ Delayed</td>
+        </tr>
+      </table>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo"><img style="width: 100px;" src="./Screenshot_2025-04-17_185040-removebg-preview.png"></div>
+      <div class="footer-links">
+        <div><strong>Shop</strong><br>All Products<br>Best Sellers</div>
+        <div><strong>About</strong><br>Our Story<br>Contact Us</div>
+        <div><strong>Help</strong><br>FAQs<br>Shipping Info</div>
+      </div>
+      <div class="footer-right">
+        <h3>Sign in to the store</h3>
+        <a href="./signin.html"><button>Sign In</button></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Lington Store. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
