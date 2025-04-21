@@ -14,10 +14,6 @@ public class usermodel {
     private String phoneNumber;
     private String password;
 
-    // Default constructor
-    public usermodel() {
-    }
-
     // Constructor for login
     public usermodel(String username, String password) {
         this.username = username;
@@ -60,14 +56,9 @@ public class usermodel {
         this.phoneNumber = phoneNumber;
     }
 
-    // Getters and setters
+    // Getters and Setters
 
-    public usermodel(String parameter, String parameter2, String parameter3, String parameter4, String string,
-			String parameter5, String encrypt, String parameter6, String imageNameFromPart) {
-		// TODO Auto-generated constructor stub
-	}
-
-	public int getId() {
+    public int getId() {
         return id;
     }
 

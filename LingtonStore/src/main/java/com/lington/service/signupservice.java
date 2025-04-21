@@ -4,8 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
-import com.lington.config.dbconfig;
+import com.lington.config.Dbconfig;
 import com.lington.Model.usermodel;
 
 public class signupservice {
@@ -18,7 +17,7 @@ public class signupservice {
     public signupservice() {
         try {
         	
-            this.dbConn = dbconfig.getDbConnection();
+            this.dbConn = Dbconfig.getDbConnection();
         } catch (SQLException | ClassNotFoundException ex) {
             System.err.println("Database connection error: " + ex.getMessage());
             ex.printStackTrace();
@@ -31,32 +30,25 @@ public class signupservice {
      * @param userModel the user details to be registered
      * @return Boolean indicating the success of the operation
      */
-    public Boolean addUser(usermodel userModel) {
-        if (dbConn == null) {
-            System.err.println("Database connection is not available.");
-            return null;
-        }
-        System.out.println("hello bishes");
-
-        String insertQuery = "INSERT INTO user (username, first_name, last_name, Gender, Dob, email, password, phone_number) "
+    public Boolean addUser(usermodel user) {
+        String insertQuery = "INSERT INTO user (username, firstName, lastName, gender, dob, email, password, phoneNumber) "
                            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-        try (PreparedStatement stmt = dbConn.prepareStatement(insertQuery)) {
-            stmt.setString(1, userModel.getUsername());
-            stmt.setString(2, userModel.getFirstName());
-            stmt.setString(3, userModel.getLastName());
-            stmt.setString(4, userModel.getGender());
-            stmt.setDate(5, Date.valueOf(userModel.getDob())); // Ensure DOB is in YYYY-MM-DD format
-            stmt.setString(6, userModel.getEmail());
-            stmt.setString(7, userModel.getPassword());
-            stmt.setString(8, userModel.getPhoneNumber());
+        try (PreparedStatement pstmt = dbConn.prepareStatement(insertQuery)) {
+            pstmt.setString(1, user.getUsername());
+            pstmt.setString(2, user.getFirstName());
+            pstmt.setString(3, user.getLastName());
+            pstmt.setString(4, user.getGender());
+            pstmt.setDate(5, java.sql.Date.valueOf(user.getDob()));
+            pstmt.setString(6, user.getEmail());
+            pstmt.setString(7, user.getPassword());
+            pstmt.setInt(8, Integer.parseInt(user.getPhoneNumber())); // 🔥 fixed line
 
-            return stmt.executeUpdate() > 0;
-
-        } catch (SQLException e) {
-            System.err.println("Error during user registration: " + e.getMessage());
-            e.printStackTrace();
-            return null;
+            int rows = pstmt.executeUpdate();
+            return rows > 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
         }
     }
 }

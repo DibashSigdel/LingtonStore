@@ -1,163 +1,102 @@
 package com.lington.controller;
-
 import java.io.IOException;
-import java.time.LocalDate;
-
-import com.lington.Model.usermodel;
-import com.lington.service.signupservice;
-import com.lington.util.PasswordUtil;
-import com.lington.util.ValidationUtil;
-import com.lington.util.ImageUtil;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.Part;
 
-@WebServlet(urlPatterns = { "/signupcontroller" })
-@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2,
-                 maxFileSize = 1024 * 1024 * 10,
-                 maxRequestSize = 1024 * 1024 * 50)
+/**
+ * Servlet implementation class signupController
+ * @author Adrian Poudyal
+ */
+@WebServlet(asyncSupported = true, urlPatterns = {"/signupcontroller"})
 public class signupcontroller extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-
-    private final ImageUtil imageUtil = new ImageUtil();
-    private final signupservice signupService = new signupservice();
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/page/Login.jsp").forward(req, resp);
+	private static final long serialVersionUID = 1L;
+	/**
+     * @see HttpServlet#HttpServlet()
+     */
+	public signupcontroller() {
+        super();
+        // TODO Auto-generated constructor stub
     }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        try {
-            String validationError = validateSignupForm(req);
-            if (validationError != null) {
-                handleError(req, resp, validationError);
-                return;
-            }
-
-            usermodel user = extractUserModel(req);
-            Boolean isRegistered = signupService.addUser(user);
-
-            if (isRegistered == null) {
-                handleError(req, resp, "Server maintenance in progress. Try again later!");
-            } else if (isRegistered) {
-                try {
-                    if (uploadImage(req)) {
-                        handleSuccess(req, resp, "Account created successfully!", "/WEB-INF/pages/Login.jsp");
-                    } else {
-                        handleError(req, resp, "Account created but image upload failed.");
-                    }
-                } catch (Exception e) {
-                    handleError(req, resp, "Account created but image upload failed. Update later.");
-                }
-            } else {
-                handleError(req, resp, "Registration failed. Username/email may exist.");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            handleError(req, resp, "An unexpected error occurred. Please try again!");
-        }
+	/**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub
+        request.getRequestDispatcher("/WEB-INF/page/Login.jsp").forward(request, response);
     }
+	/**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
+	 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	        // Retrieve form data (matching HTML input field names)
+	        String firstName = request.getParameter("FirstName");  // Updated to match HTML field name
+	        String lastName = request.getParameter("LastName");    // Updated to match HTML field name
+	        String username = request.getParameter("Username");
+	        String dob = request.getParameter("Birthday");         // Changed to "birthday" as per HTML form field
+	        String gender = request.getParameter("Gender");
+	        String email = request.getParameter("Email");          // Updated to match HTML field name
+	        String phoneNumber = request.getParameter("Phone");    // Updated to match HTML field name
+	        String password = request.getParameter("Password");
+	      //  String retypePassword = request.getParameter("retypePassword");  // Updated to match HTML field name
 
-    private String validateSignupForm(HttpServletRequest req) throws IOException, ServletException {
-       
-        String username = req.getParameter("username");
-        String firstName = req.getParameter("firstName");
-        String lastName = req.getParameter("lastName");
-        String gender = req.getParameter("gender");
-        String dobStr = req.getParameter("dob");
-        String email = req.getParameter("email");
-        String password = req.getParameter("password");
-        String phoneNumber = req.getParameter("phoneNumber");
+	        // Perform validation
+	        boolean isValid = true;
+	        StringBuilder errorMessage = new StringBuilder();
 
-        // Validation checks in specified order
-        if (ValidationUtil.isNullOrEmpty(username)) return "Username is required.";
-        if (!ValidationUtil.isAlphanumericStartingWithLetter(username)) {
-            return "Username must start with a letter (a-z) and contain only letters and numbers.";
-        }
+	        if (firstName == null || firstName.trim().isEmpty()) {
+	            isValid = false;
+	            errorMessage.append("First Name is required.<br>");
+	        }
 
-        if (ValidationUtil.isNullOrEmpty(firstName)) return "First name is required.";
-        if (ValidationUtil.isNullOrEmpty(lastName)) return "Last name is required.";
+	        if (lastName == null || lastName.trim().isEmpty()) {
+	            isValid = false;
+	            errorMessage.append("Last Name is required.<br>");
+	        }
 
-        if (ValidationUtil.isNullOrEmpty(gender)) return "Gender is required.";
-        if (!ValidationUtil.isValidGender(gender)) return "Invalid gender selection.";
+	        if (username == null || username.trim().isEmpty()) {
+	            isValid = false;
+	            errorMessage.append("Username is required.<br>");
+	        }
 
-        if (ValidationUtil.isNullOrEmpty(dobStr)) return "Date of birth is required.";
-        try {
-            LocalDate dob = LocalDate.parse(dobStr);
-            if (!ValidationUtil.isAgeAtLeast16(dob)) {
-                return "You must be at least 16 years old to register.";
-            }
-        } catch (Exception e) {
-            return "Invalid date format. Use YYYY-MM-DD.";
-        }
+	        if (dob == null || dob.trim().isEmpty()) {
+	            isValid = false;
+	            errorMessage.append("Date of Birth is required.<br>");
+	        }
 
-        if (ValidationUtil.isNullOrEmpty(email)) return "Email is required.";
-        if (!ValidationUtil.isValidEmail(email)) return "Invalid email format.";
+	        if (gender == null || gender.trim().isEmpty()) {
+	            isValid = false;
+	            errorMessage.append("Gender is required.<br>");
+	        }
 
-        if (ValidationUtil.isNullOrEmpty(password)) return "Password is required.";
-        if (!ValidationUtil.isValidPassword(password)) {
-            return "Password must be 8+ chars with 1 uppercase, 1 number, and 1 symbol.";
-        }
+	        if (email == null || email.trim().isEmpty() || !email.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
+	            isValid = false;
+	            errorMessage.append("Valid Email is required.<br>");
+	        }
 
-        if (ValidationUtil.isNullOrEmpty(phoneNumber)) return "Phone number is required.";
-        if (!ValidationUtil.isValidPhoneNumber(phoneNumber)) {
-            return "Phone must be 10 digits starting with 98.";
-        }
+	        if (phoneNumber == null || phoneNumber.trim().isEmpty() || !phoneNumber.matches("^[0-9]{10}$")) {
+	            isValid = false;
+	            errorMessage.append("Valid Phone Number is required.<br>");
+	        }
 
-        Part image = req.getPart("image");
-        if (!ValidationUtil.isValidImageExtension(image)) {
-            return "Invalid image format. Only JPG, JPEG, PNG, GIF allowed.";
-        }
+	        if (password == null || password.trim().isEmpty()) {
+	            isValid = false;
+	            errorMessage.append("Password is required.<br>");
+	        }
 
-        return null;
-    }
-
-    private usermodel extractUserModel(HttpServletRequest req) throws Exception {
-        return new usermodel(
-            req.getParameter("username"),
-            req.getParameter("firstName"),
-            req.getParameter("lastName"),
-            req.getParameter("gender"),
-            LocalDate.parse(req.getParameter("dob")).toString(),
-            req.getParameter("email"),
-            PasswordUtil.encrypt(req.getParameter("username"), req.getParameter("password")),
-            req.getParameter("phoneNumber"),
-            imageUtil.getImageNameFromPart(req.getPart("image"))
-        );
-    }
-
-    private boolean uploadImage(HttpServletRequest req) throws IOException, ServletException {
-        Part image = req.getPart("image");
-        return imageUtil.uploadImage(image, req.getServletContext().getRealPath("/"), "user");
-    }
-
-    private void handleSuccess(HttpServletRequest req, HttpServletResponse resp,
-                             String message, String redirectPage)
-            throws ServletException, IOException {
-        req.setAttribute("success", message);
-        req.getRequestDispatcher(redirectPage).forward(req, resp);
-    }
-
-    private void handleError(HttpServletRequest req, HttpServletResponse resp, String message)
-            throws ServletException, IOException {
-        req.setAttribute("error", message);
-        // Preserve form data in specified order
-        req.setAttribute("username", req.getParameter("username"));
-        req.setAttribute("firstName", req.getParameter("firstName"));
-        req.setAttribute("lastName", req.getParameter("lastName"));
-        req.setAttribute("gender", req.getParameter("gender"));
-        req.setAttribute("dob", req.getParameter("dob"));
-        req.setAttribute("email", req.getParameter("email"));
-        req.setAttribute("phoneNumber", req.getParameter("phoneNumber"));
-        req.getRequestDispatcher("/WEB-INF/page/Login.jsp").forward(req, resp);
-    }
+	        // Check if all fields are valid
+	        if (isValid) {
+	            // If valid, you can proceed with further processing (e.g., saving to database)
+	            response.getWriter().write("Registration ful!");
+	            request.getRequestDispatcher("/WEB-INF/page/Login.jsp").forward(request, response);
+	            
+	        } else {
+	            // If not valid, send error message back to the user
+	            response.setContentType("text/html");
+	            response.getWriter().write("<h2>Validation Errors:</h2>" + errorMessage.toString());
+	        }
+	    }
 }

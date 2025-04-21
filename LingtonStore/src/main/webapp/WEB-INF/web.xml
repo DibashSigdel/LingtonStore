@@ -12,5 +12,14 @@
   <servlet-mapping>
   	<servlet-name> default</servlet-name>
 	<url-pattern>/css/*</url-pattern>
+	<url-pattern>/resources/*</url-pattern>
   </servlet-mapping>
+ <!--  <servlet>
+    <servlet-name>signupcontroller</servlet-name>
+    <servlet-class>com.lington.controller.signupcontroller</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>signupcontroller</servlet-name>
+    <url-pattern>/signupcontroller</url-pattern>
+  </servlet-mapping> -->
 </web-app>
