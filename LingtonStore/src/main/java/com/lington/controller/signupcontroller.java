@@ -13,7 +13,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class signupController
- * @author Adrian Poudyal
  */
 @WebServlet(asyncSupported = true, urlPatterns = {"/signupcontroller"})
 public class signupcontroller extends HttpServlet {

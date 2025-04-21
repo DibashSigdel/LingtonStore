@@ -18,7 +18,7 @@
 	<div class="container">
 		<div class="forms-container">
 			<div class="signin-signup">
-				<!-- <form action="login" method="post" class="sign-in-form">
+				 <form action="signincontroller" method="post" class="sign-in-form">
 					<h2 class="title">Sign in</h2>
 					<div class="input-field">
 						<i class="fas fa-user"></i>
@@ -30,7 +30,7 @@
 					</div>
 					<button type="submit" value="Login" class="Loginbtn">Login</button>
 					
-				</form> -->
+				</form> 
 				
 				   <!--  String firstName = request.getParameter("FirstName");  // Updated to match HTML field name
 	        String lastName = request.getParameter("LastName");    // Updated to match HTML field name

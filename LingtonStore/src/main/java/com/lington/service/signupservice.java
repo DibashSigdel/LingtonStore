@@ -35,14 +35,14 @@ public class signupservice {
                            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstmt = dbConn.prepareStatement(insertQuery)) {
-            pstmt.setString(1, user.getUsername());
-            pstmt.setString(2, user.getFirstName());
-            pstmt.setString(3, user.getLastName());
+            pstmt.setString(3, user.getUsername());
+            pstmt.setString(1, user.getFirstName());
+            pstmt.setString(2, user.getLastName());
             pstmt.setString(5, user.getGender());
             pstmt.setDate(4, Date.valueOf(user.getDob()));
             pstmt.setString(6, user.getEmail());
-            pstmt.setString(7, user.getPassword());
-            pstmt.setString(8,user.getPhoneNumber()); // 🔥 fixed line
+            pstmt.setString(8, user.getPassword());
+            pstmt.setString(7,user.getPhoneNumber()); // 🔥 fixed line
 
             int rows = pstmt.executeUpdate();
             return rows > 0;
