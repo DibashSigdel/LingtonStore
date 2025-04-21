@@ -39,27 +39,28 @@ public class signincontroller extends HttpServlet {
 		String password = req.getParameter("password");
 
 		usermodel Usermodel = new usermodel(username, password);
-		Boolean loginStatus = signinservice.loginUser(Usermodel);
+		Boolean SigninStatus = signinservice.loginUser(Usermodel);
+
 
 		
-		  if (loginStatus != null && loginStatus) { SessionUtil.setAttribute(req,
+		  if (SigninStatus != null && SigninStatus) { SessionUtil.setAttribute(req,
 		  "username", username);
 		  
 		  if (username.equals("admin")) { CookieUtil.addCookie(resp, "role", "admin", 5
 		  * 30); } else { CookieUtil.addCookie(resp, "role", "student", 5 * 30); }
 		 
 
-			// Redirect to home.html (make sure it's placed properly inside your project root or static folder)
+			
 			resp.sendRedirect(req.getContextPath() + "/Home.jsp");
 			
-			  } else { handleLoginFailure(req, resp, loginStatus); }
+			  } else { handleLoginFailure(req, resp, SigninStatus); }
 			 
 	}
 
 	
 	  private void handleLoginFailure(HttpServletRequest req, HttpServletResponse
-	  resp, Boolean loginStatus) throws ServletException, IOException { String
-	  errorMessage; if (loginStatus == null) { errorMessage =
+	resp, Boolean SigninStatus) throws ServletException, IOException { String
+	  errorMessage; if (SigninStatus == null) { errorMessage =
 	  "Our server is under maintenance. Please try again later!"; } else {
 	  errorMessage = "User credential mismatch. Please try again!"; }
 	  req.setAttribute("error", errorMessage);

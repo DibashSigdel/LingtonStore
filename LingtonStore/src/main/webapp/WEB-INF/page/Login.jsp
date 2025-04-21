@@ -42,7 +42,8 @@
 	        String email = request.getParameter("Email");          // Updated to match HTML field name
 	        String phoneNumber = request.getParameter("Phone");    // Updated to match HTML field name
 	        String password = request.getParameter("Password"); -->
-				<form action="signupcontroller" method= "post" class="sign-up-form">
+	        
+				 <form action="signupcontroller" method= "post" class="sign-up-form">
 					<h2 class="title">Sign up</h2>
 					<div class="input-field">
 						<i class="fas fa-user"></i>
@@ -79,7 +80,7 @@
 					<button type="submit" class="Signupbtn" value="Sign up" >Signup</button>
 			
 					
-				</form>
+				</form> 
 			</div>
 		</div>
 
@@ -88,8 +89,7 @@
 				<div class="content">
 					<h3>New here ?</h3>
 					<p>
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-						ex ratione. Aliquid! manish is lama. Hello Its me .
+						Sign up to know more!!
 					</p>
 					<button class="btn transparent" id="sign-up-btn">
 						Sign up
@@ -101,8 +101,7 @@
 				<div class="content">
 					<h3>One of us ?</h3>
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-						laboriosam ad deleniti sdfhlgfgsduilfghiudsagfiagdfaild.
+						shopping spree!!
 					</p>
 					<button class="btn transparent" id="sign-in-btn">
 						Sign in
