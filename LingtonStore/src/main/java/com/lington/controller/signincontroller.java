@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import com.lington.Model.usermodel;
 import com.lington.service.signinservice;
-import com.lington.util.CookieUtil;
+//import com.lington.util.CookieUtil;
 import com.lington.util.SessionUtil;
 
 import jakarta.servlet.ServletException;
@@ -39,21 +39,22 @@ public class signincontroller extends HttpServlet {
 		String password = req.getParameter("password");
 
 		usermodel Usermodel = new usermodel(username, password);
-		Boolean SigninStatus = signinservice.loginUser(Usermodel);
+		Boolean SigninStatus = signinservice.signinUser(Usermodel);
 
 
 		
-		  if (SigninStatus != null && SigninStatus) { SessionUtil.setAttribute(req,
-		  "username", username);
-		  
-		  if (username.equals("admin")) { CookieUtil.addCookie(resp, "role", "admin", 5
-		  * 30); } else { CookieUtil.addCookie(resp, "role", "student", 5 * 30); }
-		 
+		if (SigninStatus != null && SigninStatus) {
+		    // Set username in session
+		    SessionUtil.setAttribute(req, "username", username);
+		    
+		    // Redirect to home page after successful login
+		    req.getRequestDispatcher("/WEB-INF/page/Home.jsp").forward(req, resp);
 
-			
-			resp.sendRedirect(req.getContextPath() + "/Home.jsp");
-			
-			  } else { handleLoginFailure(req, resp, SigninStatus); }
+		} else {
+		    // Handle login failure (show error message, etc.)
+		    handleLoginFailure(req, resp, SigninStatus);
+		}
+
 			 
 	}
 

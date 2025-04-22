@@ -23,34 +23,27 @@ public class signinservice {
 		}
 	}
 
-	public Boolean loginUser(usermodel Usermodel) {
-		if (isConnectionError) {
-			System.out.println("Connection Error!");
-			return null;
-		}
+	public Boolean signinUser(usermodel Usermodel) {
+	    if (isConnectionError) {
+	        System.out.println("Connection Error!");
+	        return null;
+	    }
 
-		String query = "SELECT username, password FROM `user` WHERE username = ?";
-		try (PreparedStatement stmt = dbConn.prepareStatement(query)) {
-			stmt.setString(1, Usermodel.getUsername());
-			ResultSet result = stmt.executeQuery();
+	    String query = "SELECT username, password FROM `user` WHERE username = ?";
+	    try (PreparedStatement stmt = dbConn.prepareStatement(query)) {
+	        stmt.setString(1, Usermodel.getUsername());
+	        ResultSet result = stmt.executeQuery();
 
-			if (result.next()) {
-				return validatePassword(result, Usermodel);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return null;
-		}
-
-		return false;
+	        if (result.next()) {
+	            String dbPassword = result.getString("password");
+	            // Simple plain text comparison
+	            return Usermodel.getPassword().equals(dbPassword);
+	        }
+	        return false; // User not found
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        return null;
+	    }
 	}
-	
-	private boolean validatePassword(ResultSet result, usermodel Usermodel) throws SQLException {
-		String dbUsername = result.getString("username");
-		String dbPassword = result.getString("password");
-
-		return dbUsername.equals(Usermodel.getUsername())
-				&& PasswordUtil.decrypt(dbPassword, dbUsername).equals(Usermodel.getPassword());
-	}
-
+	 
 }
