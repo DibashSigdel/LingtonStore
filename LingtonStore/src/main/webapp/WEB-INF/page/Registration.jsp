@@ -16,21 +16,7 @@
   <div class="top-banner">Free shipping on orders over Rs.1000 Use code: LINGTONSKIRANA</div>
 
   <!-- Navbar -->
-  <header class="navbar">
-    <div class="navbar-container">
-      <div class="logo"><img src="./Screenshot_2025-04-17_185040-removebg-preview.png"></div>
-      <nav class="nav-links">
-        <a href="/index.html">Home</a>
-        <a href="/product.html">Shop</a>
-        <a href="./registration.html">Register</a>
-        <a href="./aboutus.html">About Us</a>
-        <a href="/signin.html">Login/Signin</a>
-      </nav>
-      <div class="search">
-        <input type="text" placeholder="Search product">
-      </div>
-    </div>
-  </header>
+ <%@ include file="/WEB-INF/page/Header.jsp" %>
 
   <!-- Main Section -->
   <div class="main-wrapper">
@@ -84,23 +70,7 @@
   </div>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-logo"><img style="width: 100px;" src="./Screenshot_2025-04-17_185040-removebg-preview.png"></div>
-      <div class="footer-links">
-        <div><strong>Shop</strong><br>All Teas<br>Best Sellers</div>
-        <div><strong>About</strong><br>Our Story<br>Contact Us</div>
-        <div><strong>Help</strong><br>FAQs<br>Shipping Info</div>
-      </div>
-      <div class="footer-right">
-        <h3>Sign in to the store</h3>
-        <a href="./signin.html"><button>Sign In</button></a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Lington Store. All rights reserved.</p>
-    </div>
-  </footer>
+  <%@ include file="/WEB-INF/page/Footer.jsp" %>
 
 </body>
 </html>

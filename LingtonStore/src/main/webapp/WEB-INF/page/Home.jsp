@@ -14,22 +14,9 @@
   <div class="top-banner">Free shipping on orders over Rs.1000 Use code: LINGTONSKIRANA</div>
 
   <!-- Navbar -->
-  <header class="navbar">
-    <div class="navbar-container">
-      <div class="logo"><img src="./Screenshot_2025-04-17_185040-removebg-preview.png"></div>
-      <nav class="nav-links">
-    	<a href="${pageContext.request.contextPath}/Home.jsp">Home</a>
-		<a href="${pageContext.request.contextPath}/Product.jsp">Shop</a>
-		<a href="${pageContext.request.contextPath}/Registration.jsp">Register</a>
-		<a href="${pageContext.request.contextPath}/Aboutus.jsp">About Us</a>
-		<a href="${pageContext.request.contextPath}/Login.jsp">Login/Signin</a>
+<%@ include file="/WEB-INF/page/Header.jsp" %>
 
-      </nav>
-      <div class="search">
-        <input type="text" placeholder="Search product">
-      </div>
-    </div>
-  </header>
+
 
   <!-- Content -->
   <main>
@@ -78,27 +65,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-        <div> <div class="footer-logo"><img style="width: 100px;" src="./Screenshot_2025-04-17_185040-removebg-preview.png"></div></div>
-        <div class="footer-links">
-            <div><strong>Shop</strong><br>All Teas<br>Best Sellers</div>
-            <div><strong>About</strong><br>Our Story<br>Contact Us</div>
-            <div><strong>Help</strong><br>FAQs<br>Shipping Info</div>
-          </div>
-  
-      <div class="footer-right">
-      <h3>sign in to the store</h3>
-       
-        <a href="./signin.html"><button>Sign In</button></a>
-        </div>
-
-    </div>
-    <div class="footer-bottom">
-     
-      <p style="text-align: center;">&copy; 2025 Lington Store. All rights reserved.</p>
-    </div>
-  </footer>
+    <%@ include file="/WEB-INF/page/Footer.jsp" %>
 
 </body>
 </html>
