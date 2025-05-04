@@ -16,12 +16,25 @@
       <img src="${pageContext.request.contextPath}/Screenshot_2025-04-17_185040-removebg-preview.png" />
     </div>
     <nav class="nav-links">
-		<a href="${pageContext.request.contextPath}/home">Home</a>
-      <a href="${pageContext.request.contextPath}/product">Shop</a>
-      <a href="${pageContext.request.contextPath}/Registration">Register</a>
-      <a href="${pageContext.request.contextPath}/AboutUs">About Us</a>
-      <a href="${pageContext.request.contextPath}/signincontroller">Login/Signin</a>
-    </nav>
+    <a href="${pageContext.request.contextPath}/home">Home</a>
+    <a href="${pageContext.request.contextPath}/product">Shop</a>
+    <a href="${pageContext.request.contextPath}/Registration">Register</a>
+    <a href="${pageContext.request.contextPath}/AboutUs">About Us</a>
+
+    <!-- Only show Admin Dashboard if role is admin -->
+    <c:if test="${sessionScope.role == 'admin'}">
+        <a href="${pageContext.request.contextPath}/AdminDashboard">Admin Dashboard</a>
+    </c:if>
+
+    <!-- Show Login/Signin if not logged in -->
+  
+        <a href="${pageContext.request.contextPath}/signincontroller">Login/Signin</a>
+  
+
+    <!-- Optional: Show Logout if user is logged in -->
+
+</nav>
+
     <div class="search">
       <input type="text" placeholder="Search product">
     </div>

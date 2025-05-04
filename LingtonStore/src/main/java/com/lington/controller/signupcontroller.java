@@ -42,6 +42,7 @@ public class signupcontroller extends HttpServlet {
         String email = request.getParameter("Email");
         String phoneNumber = request.getParameter("Phone");
         String password = request.getParameter("Password");
+        String role = request.getParameter("role"); // Get role (user/admin)
 
         LocalDate dob = null;
 
@@ -108,10 +109,12 @@ public class signupcontroller extends HttpServlet {
             isValid = false;
             errorMessage.append("Password is required.<br>");
         }
-
+        if (role == null || (!role.equalsIgnoreCase("admin") && !role.equalsIgnoreCase("user"))) {
+            role = "user"; // default
+        }
         // If all fields are valid
         if (isValid) {
-            usermodel userobject = new usermodel(firstName, lastName, username, dob, gender, email, phoneNumber, password);
+            usermodel userobject = new usermodel(firstName, lastName, username, dob, gender, email, phoneNumber, password,role);
             signupservice signupobject = new signupservice();
             signupobject.addUser(userobject);
 

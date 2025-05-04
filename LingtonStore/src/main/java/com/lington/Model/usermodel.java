@@ -13,6 +13,7 @@ public class usermodel {
     private String email;
     private String phoneNumber;
     private String password;
+    private String role;
 
     // Constructor for login
     public usermodel(String username, String password) {
@@ -22,16 +23,17 @@ public class usermodel {
 
     // Constructor for insert (without ID)
     public usermodel(String firstName, String lastName, String username, LocalDate dob, String gender,
-                     String email, String phoneNumber, String password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.username = username;
-        this.dob = dob;
-        this.gender = gender;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.password = password;
-    }
+            String email, String phoneNumber, String password, String role) {
+			this.firstName = firstName;
+			this.lastName = lastName;
+			this.username = username;
+			this.dob = dob;
+			this.gender = gender;
+			this.email = email;
+			this.phoneNumber = phoneNumber;
+			this.password = password;
+			this.role = role;
+	}
 
 /*    // Full constructor with ID (for fetch/update)
     public usermodel(int id, String firstName, String lastName, String username, LocalDate dob, String gender,
@@ -128,5 +130,13 @@ public class usermodel {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

@@ -29,21 +29,27 @@ public class signinservice {
 	        return null;
 	    }
 
-	    String query = "SELECT username, password FROM `user` WHERE username = ?";
+	    String query = "SELECT password, role FROM user WHERE username = ?";
 	    try (PreparedStatement stmt = dbConn.prepareStatement(query)) {
 	        stmt.setString(1, Usermodel.getUsername());
 	        ResultSet result = stmt.executeQuery();
 
 	        if (result.next()) {
 	            String dbPassword = result.getString("password");
+	            String role = result.getString("role");
 	            // Simple plain text comparison
-	            return Usermodel.getPassword().equals(dbPassword);
+	            if (Usermodel.getPassword().equals(dbPassword)) {
+	            	Usermodel.setRole(role); // store role for controller use
+                    return true;
+                }
+	           
 	        }
-	        return false; // User not found
+	       
 	    } catch (SQLException e) {
 	        e.printStackTrace();
-	        return null;
+	       
 	    }
+	    return false;
 	}
 	 
 }

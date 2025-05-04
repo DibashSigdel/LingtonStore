@@ -31,8 +31,8 @@ public class signupservice {
      * @return Boolean indicating the success of the operation
      */
     public Boolean addUser(usermodel user) {
-        String insertQuery = "INSERT INTO user (firstName, lastName ,username, dob,gender, email, phoneNumber,password) "
-                           + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String insertQuery = "INSERT INTO user (firstName, lastName ,username, dob,gender, email, phoneNumber,password,role) "
+                           + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstmt = dbConn.prepareStatement(insertQuery)) {
             pstmt.setString(3, user.getUsername());
@@ -42,7 +42,8 @@ public class signupservice {
             pstmt.setDate(4, Date.valueOf(user.getDob()));
             pstmt.setString(6, user.getEmail());
             pstmt.setString(8, user.getPassword());
-            pstmt.setString(7,user.getPhoneNumber()); // 
+            pstmt.setString(7,user.getPhoneNumber()); 
+            pstmt.setString(9, user.getRole());
 
             int rows = pstmt.executeUpdate();
             return rows > 0;

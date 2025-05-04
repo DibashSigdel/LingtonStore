@@ -77,6 +77,12 @@
 						<i class="fas fa-lock"></i>
 						<input type="password" id="Password"  name="Password" placeholder="Password" />
 					</div>
+					<div class="input-field">
+					<i class="fas fa-lock"></i>
+		
+						<input type="text" id="role" name="role" value="admin" />
+
+					</div>
 					<button type="submit" class="Signupbtn" value="Sign up" >Signup</button>
 			
 					

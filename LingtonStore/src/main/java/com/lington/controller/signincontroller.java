@@ -46,10 +46,14 @@ public class signincontroller extends HttpServlet {
 		if (SigninStatus != null && SigninStatus) {
 		    // Set username in session
 		    SessionUtil.setAttribute(req, "username", username);
+		    SessionUtil.setAttribute(req, "role", Usermodel.getRole());
 		    
 		    // Redirect to home page after successful login
-		    req.getRequestDispatcher("/WEB-INF/page/Home.jsp").forward(req, resp);
-
+		    if ("admin".equalsIgnoreCase(Usermodel.getRole())) {
+	            req.getRequestDispatcher("/WEB-INF/page/Adminpannel.jsp").forward(req, resp);
+	        } else {
+	            req.getRequestDispatcher("/WEB-INF/page/Home.jsp").forward(req, resp);
+	        }
 		} else {
 		    // Handle login failure (show error message, etc.)
 		    handleLoginFailure(req, resp, SigninStatus);

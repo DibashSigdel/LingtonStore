@@ -38,8 +38,8 @@
         </div>
 
         <div class="form-group">
-          <label for="Birthday">Birthday</label>
-          <input type="date" id="Birthday" name="Birthday" required />
+          <label for="dob">Birthday</label>
+          <input type="date" id="dob" name="dob" required />
         </div>
 
         <div class="form-group">
