@@ -16,10 +16,10 @@
       <img src="${pageContext.request.contextPath}/Screenshot_2025-04-17_185040-removebg-preview.png" />
     </div>
     <nav class="nav-links">
-      <a href="${pageContext.request.contextPath}/Home.jsp">Home</a>
-      <a href="${pageContext.request.contextPath}/Product.jsp">Shop</a>
-      <a href="${pageContext.request.contextPath}/Registration.jsp">Register</a>
-      <a href="${pageContext.request.contextPath}/Aboutus.jsp">About Us</a>
+		<a href="${pageContext.request.contextPath}/home">Home</a>
+      <a href="${pageContext.request.contextPath}/product">Shop</a>
+      <a href="${pageContext.request.contextPath}/Registration">Register</a>
+      <a href="${pageContext.request.contextPath}/AboutUs">About Us</a>
       <a href="${pageContext.request.contextPath}/signincontroller">Login/Signin</a>
     </nav>
     <div class="search">

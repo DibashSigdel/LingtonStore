@@ -24,7 +24,7 @@
       <div class="text">
         <h1>Fresh Groceries Delivered to You</h1>
         <p>Browse our curated categories of fresh produce, dairy, snacks, and more. Get fast delivery across Kathmandu!</p>
-        <a href="./product.html"><button>Start Shopping</button></a>
+        <a  href="${pageContext.request.contextPath}/product"><button>Start Shopping</button></a>
       </div>
       <div class="img-wrapper">
         <img src="https://static.vecteezy.com/system/resources/previews/048/560/473/non_2x/shopping-cart-filled-with-grocery-items-and-vegetables-isolated-on-a-transparent-background-png.png">

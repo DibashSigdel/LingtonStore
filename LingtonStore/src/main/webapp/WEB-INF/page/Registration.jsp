@@ -6,9 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Herbal Tea Shop</title>
-  <style>
-    
-  </style>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/Registration.css" />
 </head>
 <body>
 
