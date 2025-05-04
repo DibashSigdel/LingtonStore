@@ -56,10 +56,6 @@
           <label for="Phone">Phone</label>
           <input type="text" id="Phone" name="Phone" required />
         </div>
-         <div class="form-group">
-          <label for="Phone">Role</label>
-<input type="text" id="role" name="role" value="admin" />
-        </div>
 
         <div class="form-group">
           <label for="Password">Password</label>
