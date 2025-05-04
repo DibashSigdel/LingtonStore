@@ -10,5 +10,5 @@
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
         <listEntry value="4"/>
     </listAttribute>
-    <stringAttribute key="server-id" value="apache-tomcat-10.1.28 at localhost (2)"/>
+    <stringAttribute key="server-id" value="apache-tomcat-10.1.28 at localhost"/>
 </launchConfiguration>

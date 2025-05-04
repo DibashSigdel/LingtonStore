@@ -1,7 +1,3 @@
 INDEX VERSION 1.134
-C:\Users\dibas\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1301424661.index
-\MyTestJavaPrj1\src\main\java
-C:\Users\dibas\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1339812681.index
+C:\Users\dibas\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3922921053.index
 \LingtonStore\src\main\java
-C:\Users\dibas\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3078605455.index
-\MyTestJavaPrj1\src\main\java

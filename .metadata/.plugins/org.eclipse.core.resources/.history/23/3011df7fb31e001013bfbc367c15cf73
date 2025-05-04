@@ -1,0 +1,48 @@
+package com.lington.controller;
+
+import java.io.IOException;
+
+import com.lington.Model.usermodel;
+import com.lington.service.signinservice;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet(asyncSupported = true, urlPatterns = {"/signincontroller"})
+public class signincontroller extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    private final signinservice loginService = new signinservice();
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.getRequestDispatcher("/WEB-INF/page/Login.jsp").forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+
+        usermodel user = new usermodel(username, password);
+        Boolean isAuthenticated = loginService.loginUser(user);
+        
+      
+
+		
+		  if (isAuthenticated != null && isAuthenticated) {
+		  request.getRequestDispatcher("/WEB-INF/page/Home.jsp").forward(request,
+		  response); } else { request.setAttribute("error",
+		  "Invalid username or password.");
+		  request.getRequestDispatcher("/WEB-INF/page/Login.jsp").forward(request,
+		  response); }
+		 
+    }
+    
+}
