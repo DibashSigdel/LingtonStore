@@ -106,6 +106,56 @@ main {
 }
 
 /* Footer */
+.footer {
+  background-color: #a5b89f;
+  color: #f1f1f1;
+  padding: 40px 20px 10px;
+  margin-top: auto;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-right button {
+  padding: 8px 14px;
+  border: none;
+  background: #4CAF50;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.footer-links {
+  display: flex;
+  flex: 2;
+  justify-content: space-around;
+}
+
+.footer-links div {
+  line-height: 1.8;
+}
+
+.footer-bottom {
+  border-top: 1px solid #444;
+  padding-top: 10px;
+  color: #111;
+  text-align: center;
+  font-size: 12px;
+}
+
+.footer-logo {
+  font-weight: bold;
+}
 
 /* Hero Section */
 .hero {

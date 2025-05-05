@@ -5,34 +5,30 @@
 <head>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Home.css" />
   <meta charset="UTF-8">
-  <title>Insert title here</title>
+  <title>Header</title>
 </head>
 <body>
+
+
 
 <header class="navbar">
   <div class="navbar-container">
     
-    <div class="Welcometext">
-      <c:if test="${not empty sessionScope.username}">
-        <span>Welcome, ${sessionScope.username}</span>
-      </c:if>
+    <!-- Logo on the far left -->
+    <div class="logo-container">
+      <img class="logo" src="https://i.ibb.co/ZR2xJj1p/Screenshot-2025-04-17-185040-removebg-preview.png" alt="Logo" />
     </div>
 
-    <div class="logo">
-      <img src="${pageContext.request.contextPath}/Screenshot_2025-04-17_185040-removebg-preview.png" />
-    </div>
-
+    <!-- Navigation Links -->
     <nav class="nav-links">
-      <a href="${pageContext.request.contextPath}/home">Home</a>	
+      <a href="${pageContext.request.contextPath}/home">Home</a>
       <a href="${pageContext.request.contextPath}/product">Shop</a>
       <a href="${pageContext.request.contextPath}/Registration">Register</a>
       <a href="${pageContext.request.contextPath}/AboutUs">About Us</a>
-
       <c:if test="${sessionScope.role == 'admin'}">
         <a href="${pageContext.request.contextPath}/AdminDashboard">Admin Dashboard</a>
         <a href="${pageContext.request.contextPath}/AddProductForm">Product Management</a>
       </c:if>
-
       <c:if test="${empty sessionScope.username}">
         <a href="${pageContext.request.contextPath}/signincontroller">Login/Signin</a>
       </c:if>
@@ -41,8 +37,18 @@
       </c:if>
     </nav>
 
-    <div class="search">
-      <input type="text" placeholder="Search product">
+    <!-- Profile & Search -->
+    <div style="display: flex; align-items: center;">
+      <c:if test="${not empty sessionScope.username}">
+        <div class="username-container">
+          <img class="profile-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE_x6NwUWccs5uiI2OVZdtWRFfDMNbVbhkn6g925096hRD8KP1S5kqEYw4dDp11-EERhw&usqp=CAU" alt="Profile" />
+          <span>${sessionScope.username}</span>
+        </div>
+      </c:if>
+
+      <div class="search">
+        <input type="text" placeholder="Search product">
+      </div>
     </div>
 
   </div>
