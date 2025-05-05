@@ -36,7 +36,13 @@
 	            <h3>${product.name}</h3>
 	            <p>${product.description}</p>
 	            <div class="price">Rs. ${product.price}</div>
-	            <button class="btn">Add to Cart</button>
+	            <!-- manish ko cahnges
+	           <button class="btn">Add to Cart</button> -->
+	          <form action="${pageContext.request.contextPath}/cart" method="post">
+  <input type="hidden" name="action" value="add" />
+  <input type="hidden" name="productId" value="${product.id}" />
+  <button type="submit" class="btn">Add to Cart</button>
+</form>
 	          </div>
 	        </div>
 	      </c:forEach>

@@ -128,4 +128,19 @@ public class ProductDao {
         p.setImageUrl(rs.getString("ImageURL"));
         return p;
     }
+    // manish ko changes
+    public productmodel getProductById(int id) {
+        String sql = "SELECT * FROM product WHERE ProductID = ?";
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return mapResultSetToProduct(rs);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
