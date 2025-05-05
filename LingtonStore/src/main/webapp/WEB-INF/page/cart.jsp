@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, com.lington.Model.Cartitemmodel" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,7 +84,7 @@
 <p style="text-align:center; margin-top: 30px;">
     <a href="product">⬅️ Continue Shopping</a>
     <!-- NEW: Checkout Button -->
-    <a href="checkout.jsp" style="margin-left: 20px; background: #4CAF50; color: white; padding: 10px 15px; text-decoration: none;">
+    <a href="${pageContext.request.contextPath}/checkout" style="margin-left: 20px; background: #4CAF50; color: white; padding: 10px 15px; text-decoration: none;">
         Checkout ➡️
     </a>
 </p>

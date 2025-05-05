@@ -38,11 +38,11 @@
 	            <div class="price">Rs. ${product.price}</div>
 	            <!-- manish ko cahnges
 	           <button class="btn">Add to Cart</button> -->
-	          <form action="${pageContext.request.contextPath}/cart" method="post">
+	           <form action="${pageContext.request.contextPath}/cart" method="post">
   <input type="hidden" name="action" value="add" />
   <input type="hidden" name="productId" value="${product.id}" />
   <button type="submit" class="btn">Add to Cart</button>
-</form>
+</form> 
 	          </div>
 	        </div>
 	      </c:forEach>
