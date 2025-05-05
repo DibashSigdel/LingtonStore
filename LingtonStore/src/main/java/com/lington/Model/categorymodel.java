@@ -3,6 +3,15 @@ package com.lington.Model;
 public class categorymodel {
     private int id;
     private String name;
+    private String imageUrl;
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }

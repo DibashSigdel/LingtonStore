@@ -33,35 +33,19 @@
   
     <!-- Featured Products -->
     <section class="features">
-      <h2>Our categories</h2>
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="Vegetables">
-          <h3>InstantFood and Drinks</h3>
-          
-        </div>
-        <div class="product-card">
-          <img src="https://cdn-icons-png.flaticon.com/512/1046/1046786.png" alt="Fruits">
-          <h3>Fruits and Veletables</h3>
-          
-        </div>
-        <div class="product-card">
-          <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Dairy">
-          <h3>Milk & Dairy</h3>
-          
-        </div>
-        <div class="product-card">
-          <img src="https://cdn-icons-png.flaticon.com/512/3600/3600923.png" alt="Snacks">
-          <h3>Kitchen utensils and accessories</h3>
-        
-        </div>
-        <div class="product-card">
-          <img src="https://cdn-icons-png.flaticon.com/512/3600/3600923.png" alt="Snacks">
-          <h3>Extras</h3>
-          
-        </div>
+  <h2>Our Categories</h2>
+  <div class="product-grid">
+    <c:forEach var="cat" items="${categories}">
+      <div class="product-card">
+        <a href="${pageContext.request.contextPath}/product?category=${cat.id}">
+          <img src="${cat.imageUrl}" alt="${cat.name}" />
+          <h3>${cat.name}</h3>
+        </a>
       </div>
-    </section>
+    </c:forEach>
+  </div>
+</section>
+
   </main>
 
   <!-- Footer -->
