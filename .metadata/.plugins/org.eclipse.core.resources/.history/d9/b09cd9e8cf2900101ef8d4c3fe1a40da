@@ -68,8 +68,7 @@ public class CartController extends HttpServlet {
             }
 
             session.setAttribute("cart", cart);
-            response.sendRedirect(request.getContextPath() + "/cart");  // ⬅️ key change
-
+            request.getRequestDispatcher("/WEB-INF/page/cart.jsp").forward(request, response);
 
         } catch (Exception e) {
             e.printStackTrace();
