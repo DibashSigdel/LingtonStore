@@ -21,16 +21,26 @@
     <div class="logo">
       <img src="${pageContext.request.contextPath}/Screenshot_2025-04-17_185040-removebg-preview.png" />
     </div>
-    <nav class="nav-links">
-    <a href="${pageContext.request.contextPath}/home">Home</a>
+   <nav class="nav-links">
+    <a href="${pageContext.request.contextPath}/home">Home</a>	
     <a href="${pageContext.request.contextPath}/product">Shop</a>
     <a href="${pageContext.request.contextPath}/Registration">Register</a>
     <a href="${pageContext.request.contextPath}/AboutUs">About Us</a>
 
-    <!-- Only show Admin Dashboard if role is admin -->
     <c:if test="${sessionScope.role == 'admin'}">
         <a href="${pageContext.request.contextPath}/AdminDashboard">Admin Dashboard</a>
+    <a href="${pageContext.request.contextPath}/AddProductForm">Product Management</a>
+
     </c:if>
+
+    <c:if test="${empty sessionScope.username}">
+        <a href="${pageContext.request.contextPath}/signincontroller">Login/Signin</a>
+    </c:if>
+    <c:if test="${not empty sessionScope.username}">
+        <a href="${pageContext.request.contextPath}/logoutcontroller">Logout</a>
+    </c:if>
+</nav>
+
 
     <!-- Show Login/Signin if not logged in -->
   

@@ -7,8 +7,8 @@ public class productmodel {
     private double price;
     private String imageUrl; // optional
     private int categoryId;
+    private int stockQuantity;
 
-    // Getters and Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
@@ -26,4 +26,7 @@ public class productmodel {
 
     public int getCategoryId() { return categoryId; }
     public void setCategoryId(int categoryId) { this.categoryId = categoryId; }
+
+    public int getStockQuantity() { return stockQuantity; }
+    public void setStockQuantity(int stockQuantity) { this.stockQuantity = stockQuantity; }
 }
