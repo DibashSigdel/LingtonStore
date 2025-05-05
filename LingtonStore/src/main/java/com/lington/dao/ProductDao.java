@@ -55,6 +55,32 @@ public class ProductDao {
         }
     }
 
+    public void updateProduct(productmodel p) throws SQLException {
+        String sql = "UPDATE product SET ProductName=?, Description=?, Price=?, StockQuantity=?, CategoryID=?, ImageURL=? WHERE id=?";
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, p.getName());
+            ps.setString(2, p.getDescription());
+            ps.setDouble(3, p.getPrice());
+            ps.setInt(4, p.getStockQuantity());
+            ps.setInt(5, p.getCategoryId());
+            ps.setString(6, p.getImageUrl());
+            ps.setInt(7, p.getId());
+            ps.executeUpdate();
+        }
+    }
+
+    public void deleteProduct(int id) throws SQLException {
+        String sql = "DELETE FROM product WHERE ProductID=?";  // 🛠️ Fix column name
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            int rows = ps.executeUpdate();
+            System.out.println("🗑️ Deleted rows: " + rows);
+            if (rows == 0) {
+                throw new SQLException("No product found with ID: " + id);
+            }
+        }
+    }
+
 
     public List<productmodel> getProductsByCategory(int categoryId) {
         List<productmodel> products = new ArrayList<>();
