@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2025 at 09:51 AM
+-- Generation Time: May 05, 2025 at 02:07 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -168,7 +168,7 @@ CREATE TABLE `product` (
   `Price` decimal(10,2) DEFAULT NULL,
   `StockQuantity` int(11) DEFAULT NULL,
   `CategoryID` int(11) DEFAULT NULL,
-  `ImageURL` varchar(255) DEFAULT NULL
+  `ImageURL` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -176,12 +176,10 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`ProductID`, `ProductName`, `Description`, `Price`, `StockQuantity`, `CategoryID`, `ImageURL`) VALUES
-(1, 'Red Apples', 'Sweet and crunchy.', 2.99, 50, 2, 'https://media.self.com/photos/5b6b0b0cbb7f036f7f5cbcfa/4:3/w_2560%2Cc_limit/apples.jpg'),
-(2, 'Organic Milk', '1L full cream milk.', 1.49, 30, 3, 'https://horizon.com/wp-content/uploads/horizon-organic-grassfed-whole-milk-v2-2.png'),
-(3, 'Wheat Bread', 'Fresh and soft.', 2.49, 40, 5, 'https://images.squarespace-cdn.com/content/v1/59babd06a8b2b074e84ec171/1526499595917-18JSZY3V8BZK4QRFM4MS/City-Bread-Multigrain-675g.png?format=750w'),
-(4, 'Instant Noodles', 'Quick and tasty snack.', 1.20, 100, 1, 'https://cdn.pixabay.com/photo/2020/05/01/13/57/noodles-5118895_1280.jpg'),
-(5, 'Paneer Cubes', 'Soft and fresh paneer.', 3.49, 20, 3, 'https://www.bigbasket.com/media/uploads/p/xxl/40097538_7-amul-malai-paneer.jpg'),
-(6, 'Tomatoes', 'Juicy and ripe tomatoes.', 1.10, 60, 2, 'https://cdn.pixabay.com/photo/2017/01/20/15/06/tomatoes-1995056_1280.jpg');
+(11, 'manish', 'sad', 123.00, 123, 4, 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUwAAACYCAMAAAC4aCDgAAAB0VBMVEVOm/is3/3AAAoAAABQoP9Rof9PnfxMmvis4v8SQc7IAABPnv6VAADCAAnBAACs4/9SpP+WAg4XL0uy5v8AMssaNFMAN8wAL8oIDxuwAAAANcur5v+6AACZAAAMGCchQmkfPmE9esMuXJJcAACKAABFjuHNAAA3brEQIDQ0Z6RToPpPeNstZpxvAABAhdEJPM2kpbmilaeiAABjrPxakOZwfceZT395dbqfR3ORW5MpUYFvs/tmrPqowtumuNCIxPuzn7MuWNO7hZZUft20t85diOATP8SghpcdT3Svz+mecIB/AAAoUNCfe4qj0uev7f+YyvV2EhymO2G4GSy8DxutM1KDaqqJZaGsK0m0IjqUVoxxe8W3FymfR3SFaagPHi8qLTEoNEhpm+pBadZSY2h6m6ppgoyPvtRELidsQkpOCAB7v/+CfYpFHhBFT041PUIAF8e4WGYzDAC7cYEtHRrFRE4YIVUUImqNWXhBY4ZihJxPeaETKIB0dbCcKiyRa4mLeZ+dPkV/PnARM6aFMlubUFuOL01eIyWdYW9NME0XHkybSlqYLzoVPLEANINDI0BSCgA8AAA+LkBmFyBiJzeTgJ9HGh9JJ1GJsL+YFB0fAAPRq0edAAAQAElEQVR4nO2di1vaWN7HEzg5CQkkYCgIeEONqMjNBm2l0PpaZLDeaq2262wvuB33ne7s+7Zze3c60207447dabvT+rZb96/dc5KAYC8kkKl1PZ+nVUKA5+TL+V1PEimKQCAQCIRDBVLs/gb77tcRmgOzKgWA0PDUYY3lqAOzQ7xjZeK0qm2posjz/CRRszVYauXSqnj5sgogkpBdEVdWVtTDHtTRBXhPiRPra2sbRVUF6lDRCw57REcZZlXE1j00NMSjB+tEyzaAKj/hRb/VYnZyRbyywhz2gI4wDLXGZwFOiSCg+PX1VS9gSABqCV'),
+(12, 'Dibash Sigdel', 'asd', 1234.00, 123, 3, 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAPDw8NDxAQDw8NDQ0NDQ8PEA8NDw0NFREWFhURFRUYHSggGBolGxUVITEhJSkrLi4uFx82ODMsNyg1LjcBCgoKDg0OFRAQGy0dFR0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLSstLS0tLSstLf/AABEIALcBEwMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAACAAEDBAUIBgf/xABCEAACAgEBBgMGAwMJCAMAAAAAAQIDBBEFEhMhUWEGFDEHIkFxgZEyUqEjQrEIFSSCosHR4fBiZXJzkrKzwiUzNP/EABoBAAMBAQEBAAAAAAAAAAAAAAABAgMFBAb/xAAhEQEBAAMAAgIDAQEAAAAAAAAAAQIREhMhA1ExQWEUBP/aAAwDAQACEQMRAD8Afyw6xzU8sOsYz7bcstY4XlzUWOEsYXZ8slY4SxzVWMEsYOxwyfLhcDsaqxh1jB2OGVwB1Qa3lh1jdg7PhkqgfgGt5YXlg7o4ZDoBljmw8YCWKEzK4RiuhAulGvPGIZY5U+RF+Nm8HsNwTRdAuCV5IXDMdBG6OxqSqI5VDmabgypUdiOWOasqwHSV2i/HGPLHRXso7G5OghnR2LnyM8vgljElV2I5UmzPHIZYpc+Rjl/zsWdHz5jcLQ1p4wDxS+4w/wA1l/DKsrI9zX0NSeKRvGHMoxz+G7/DNdYLiaMqGvQhnTzKmTLP47P0p7oO6W5Vfcfgj2z5qnuiLTq7CGNV9W4QuGT6C3TjbfWaRKsJVhaDoNjQdwJQHTH1Fs9G3Bbg6FqGz0dQFui1G3kGxo+6LdFqht5BsaPujOIt5C3kLZ6BKBHKslc0DKaDZaQusCUESytj1RHxYtapprqnqg2WkE4Igmiay1FadqKlLQZA8gZXEbuKhDkQy0BneRSuLlqbIJtASaIpXETuLlZ2RPJojehDK'),
+(13, 'Seb', 'Syau', 50.00, 15, 2, 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAPDw8NDxAQDw8NDQ0NDQ8PEA8NDw0NFREWFhURFRUYHSggGBolGxUVITEhJSkrLi4uFx82ODMsNyg1LjcBCgoKDg0OFRAQGy0dFR0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLSstLS0tLSstLf/AABEIALcBEwMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAACAAEDBAUIBgf/xABCEAACAgEBBgMGAwMJCAMAAAAAAQIDBBEFEhMhUWEGFDEHIkFxgZEyUqEjQrEIFSSCosHR4fBiZXJzkrKzwiUzNP/EABoBAAMBAQEBAAAAAAAAAAAAAAABAgMFBAb/xAAhEQEBAAMAAgIDAQEAAAAAAAAAAQIREhMhA1ExQWEUBP/aAAwDAQACEQMRAD8Afyw6xzU8sOsYz7bcstY4XlzUWOEsYXZ8slY4SxzVWMEsYOxwyfLhcDsaqxh1jB2OGVwB1Qa3lh1jdg7PhkqgfgGt5YXlg7o4ZDoBljmw8YCWKEzK4RiuhAulGvPGIZY5U+RF+Nm8HsNwTRdAuCV5IXDMdBG6OxqSqI5VDmabgypUdiOWOasqwHSV2i/HGPLHRXso7G5OghnR2LnyM8vgljElV2I5UmzPHIZYpc+Rjl/zsWdHz5jcLQ1p4wDxS+4w/wA1l/DKsrI9zX0NSeKRvGHMoxz+G7/DNdYLiaMqGvQhnTzKmTLP47P0p7oO6W5Vfcfgj2z5qnuiLTq7CGNV9W4QuGT6C3TjbfWaRKsJVhaDoNjQdwJQHTH1Fs9G3Bbg6FqGz0dQFui1G3kGxo+6LdFqht5BsaPujOIt5C3kLZ6BKBHKslc0DKaDZaQusCUESytj1RHxYtapprqnqg2WkE4Igmiay1FadqKlLQZA8gZXEbuKhDkQy0BneRSuLlqbIJtASaIpXETuLlZ2RPJojehDK'),
+(14, 'jhgjhgf', 'gfdghd', 65.00, 654, 1, 'fdghd');
 
 -- --------------------------------------------------------
 
@@ -235,7 +233,8 @@ INSERT INTO `user` (`User_ID`, `firstName`, `lastName`, `username`, `dob`, `gend
 (30, 'admin', 'admin', 'admin', '2025-05-07', 'Male', 'admin@admin', '0987654321', 'admin', 'admin'),
 (31, 'admin', 'admin', 'admin', '2025-05-07', 'Male', 'admin@admin', '0987654321', 'admin', 'admin'),
 (32, 'jaggu', 'dada', 'jagguDada', '2025-05-14', 'male', 'admin@123.com', '0987654321', 'Admin', 'admin'),
-(33, 'adrian', 'poudyal', 'adrianji', '2025-05-02', 'male', 'adrian1@gmail.com', '0987654321', '30123', 'admin');
+(33, 'adrian', 'poudyal', 'adrianji', '2025-05-02', 'male', 'adrian1@gmail.com', '0987654321', '30123', 'admin'),
+(34, 'anya', 'Manchey', 'nayamanchey', '2025-05-13', 'male', 'manchey@gmail.com', '0987654321', '8990', 'admin');
 
 -- --------------------------------------------------------
 
@@ -418,13 +417,13 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `ProductID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ProductID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `User_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Constraints for dumped tables
