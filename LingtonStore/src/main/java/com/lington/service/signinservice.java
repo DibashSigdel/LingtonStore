@@ -37,19 +37,18 @@ public class signinservice {
 	        if (result.next()) {
 	            String dbPassword = result.getString("password");
 	            String role = result.getString("role");
-	            // Simple plain text comparison
+
 	            if (Usermodel.getPassword().equals(dbPassword)) {
-	            	Usermodel.setRole(role); // store role for controller use
-                    return true;
-                }
-	           
+	                // Set role to the usermodel
+	                Usermodel.setRole(role);
+	                return true;
+	            }
 	        }
-	       
 	    } catch (SQLException e) {
 	        e.printStackTrace();
-	       
 	    }
 	    return false;
 	}
+
 	 
 }

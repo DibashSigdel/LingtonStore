@@ -68,7 +68,11 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
-
+.Welcometext span{
+	color:#082248;
+	font-size:22px;
+	font-weight:500;
+}
     /* Main content placeholder */
     main {
       flex: 1;

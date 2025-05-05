@@ -1,5 +1,6 @@
 package com.lington.controller;
 
+import com.lington.util.SessionUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -7,14 +8,18 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Servlet implementation class LogoutController
- */
-@WebServlet("/logout")
+@WebServlet("/logoutcontroller")
 public class LogoutController extends HttpServlet {
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        req.getSession().invalidate();
+    private static final long serialVersionUID = 1L;
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        
+        // Invalidate session using utility class
+        SessionUtil.invalidateSession(req);
+        
+        // Redirect to login
         resp.sendRedirect(req.getContextPath() + "/signincontroller");
     }
 }
-
