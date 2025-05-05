@@ -18,17 +18,17 @@
 	      <h2>Categories</h2>
 	      <ul>
 			  <c:forEach var="cat" items="${categories}">
-			    <li><a href="product?category=${cat.id}">${cat.name}</a></li>
+			    <li><a style="text-decoration:;" href="product?category=${cat.id}">${cat.name}</a></li>
 			  </c:forEach>
 		</ul>
-	
+
 	    </aside>
-	
+
 	    <div class="container">
 	      <c:if test="${empty products}">
 	        <p>No products found in this category.</p>
 	      </c:if>
-	
+
 	      <c:forEach var="product" items="${products}">
 	        <div class="product-card">
 	          <img src="${product.imageUrl}" alt="Image" />
@@ -42,7 +42,7 @@
 	      </c:forEach>
 	    </div>
 	  </div>
-	
+
 	  <%@ include file="/WEB-INF/page/Footer.jsp" %>
 	</body>
 	</html>

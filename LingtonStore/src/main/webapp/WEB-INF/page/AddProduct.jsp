@@ -5,30 +5,9 @@
 <head>
     <meta charset="UTF-8" />
     <title>Admin Product Management</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Home.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/AddProduct.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <style>
-        .popup {
-            display: none;
-            position: fixed;
-            z-index: 10;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.5);
-        }
-        .popup-content {
-            background-color: white;
-            margin: 10% auto;
-            padding: 20px;
-            width: 400px;
-            border-radius: 8px;
-        }
-        .close-btn {
-            float: right;
-            font-size: 18px;
-            cursor: pointer;
-        }
-    </style>
+   
 </head>
 <body>
 
@@ -39,10 +18,11 @@
 <%@ include file="/WEB-INF/page/Header.jsp" %>
 
 <!-- Page Content -->
-<main style="padding: 2rem;">
+<main>
 <h2>Admin - Manage Products</h2>
 
 <!-- Category Filter -->
+<div class="FilterLine">
 <form method="get" action="${pageContext.request.contextPath}/AddProductForm">
     <label>Filter by Category:</label>
     <select name="category" onchange="this.form.submit()">
@@ -54,10 +34,11 @@
 </form>
 
 <!-- Add Product Button -->
-<button onclick="document.getElementById('popupForm').style.display='block'">+ Add Product</button>
-
+<button class="AddProductBtn" onclick="document.getElementById('popupForm').style.display='block'">+ Add Product</button>
+</div>
 <!-- Product Table -->
-<table border="1" cellpadding="8" style="margin-top: 20px;">
+<div class="table-container">
+<table border="1" cellpadding="8">
     <tr>
         <th>ID</th><th>Name</th><th>Description</th><th>Price</th><th>Stock</th><th>Category</th><th>Image</th><th>Action</th>
     </tr>
@@ -84,7 +65,7 @@
         </tr>
     </c:forEach>
 </table>
-
+</div>
 <!-- Add/Edit Product Popup -->
 <div id="popupForm" class="popup">
     <div class="popup-content">
