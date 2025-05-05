@@ -56,13 +56,12 @@
             <td>
                 <!-- Quantity Update Form (NEW) -->
                 <form class="qty-form" action="cart" method="post">
-                    <input type="hidden" name="action" value="update" />
-                    <input type="hidden" name="productId" value="<%= item.getProduct().getId() %>" />
-                    <button type="submit" name="quantity" value="<%= qty-1 %>" class="qty-btn">-</button>
-                    <input type="number" name="quantity" value="<%= qty %>" min="1" class="qty-input" 
-                           onchange="this.form.submit()">
-                    <button type="submit" name="quantity" value="<%= qty+1 %>" class="qty-btn">+</button>
-                </form>
+				    <input type="hidden" name="productId" value="<%= item.getProduct().getId() %>" />
+				    <button type="submit" name="action" value="dec" class="qty-btn">-</button>
+				    <input type="number" name="quantity" value="<%= qty %>" min="1" class="qty-input" onchange="this.form.submit()">
+				    <button type="submit" name="action" value="inc" class="qty-btn">+</button>
+				</form>
+
             </td>
             <td>Rs. <%= String.format("%.2f", total) %></td>
             <td>
