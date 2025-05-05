@@ -70,10 +70,10 @@
 
 .footer-bottom {
   text-align: center;
-  margin-top: 30px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding-top: 15px;
+  padding: 15px 10px;
   font-size: 14px;
+  background: linear-gradient(to right, #9CAF88, #cddbb7);
   color: #222;
 }
+
 

@@ -47,10 +47,10 @@
 </c:if>
 
 
-
+  <div class="footer-bottom">
+    <p>&copy; 2025 Lington Store. All rights reserved.</p>
+  </div>
 </footer>
-<div class="footer-bottom">
-  <p>&copy; 2025 Lington Store. All rights reserved.</p>
-</div>
+
 </body>
 </html>
