@@ -1,8 +1,11 @@
 package com.lington.controller;
 
 import java.io.IOException;
+import java.util.List;
 
+import com.lington.Model.categorymodel;
 import com.lington.Model.usermodel;
+import com.lington.dao.CategoryDao;
 import com.lington.service.signinservice;
 //import com.lington.util.CookieUtil;
 import com.lington.util.SessionUtil;
@@ -49,9 +52,20 @@ public class signincontroller extends HttpServlet {
 		    SessionUtil.setAttribute(req, "role", Usermodel.getRole());
 		    
 		    // Redirect to home page after successful login
+		    
 		    if ("admin".equalsIgnoreCase(Usermodel.getRole())) {
 	            req.getRequestDispatcher("/WEB-INF/page/Adminpannel.jsp").forward(req, resp);
 	        } else {
+	        	// Fetch and store categories in session for user role
+				CategoryDao categoryDao = null;
+				try {
+					categoryDao = new CategoryDao();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				List<categorymodel> categories = categoryDao.getAllCategories();
+				req.getSession().setAttribute("categories", categories);
 	            req.getRequestDispatcher("/WEB-INF/page/Home.jsp").forward(req, resp);
 	        }
 		} else {

@@ -10,31 +10,22 @@
 
 <footer class="footer">
   <div class="footer-container">
-    
+
     <div class="footer-section">
       <h4>Company</h4>
       <ul>
         <li><a href="#">About Us</a></li>
         <li><a href="#">Careers</a></li>
-        <li><a href="#">Press</a></li>
+        <li><a href="#">Blog</a></li>
       </ul>
     </div>
 
     <div class="footer-section">
-      <h4>Quick Links</h4>
+      <h4>Support</h4>
       <ul>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">Returns</a></li>
+        <li><a href="#">Contact</a></li>
         <li><a href="#">FAQs</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-section">
-      <h4>Contact</h4>
-      <ul>
-        <li>Email: support@example.com</li>
-        <li>Phone: +1 (555) 123-4567</li>
-        <li>Address: 123 Main Street, Kathmandu</li>
+        <li><a href="#">Shipping & Returns</a></li>
       </ul>
     </div>
 
@@ -47,10 +38,15 @@
       </div>
     </div>
 
+    <div class="footer-section">
+      <h4>Sign In</h4>
+      <a href="${pageContext.request.contextPath}/signincontroller"><button class="sign-btn">Sign In</button></a>
+    </div>
+
   </div>
 
   <div class="footer-bottom">
-    <p>&copy; 2025 YourCompany. All rights reserved.</p>
+    <p>&copy; 2025 Lington Store. All rights reserved.</p>
   </div>
 </footer>
 
