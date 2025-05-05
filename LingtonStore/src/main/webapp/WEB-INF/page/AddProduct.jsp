@@ -1,9 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8" />
     <title>Admin Product Management</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Home.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <style>
         .popup {
             display: none;
@@ -29,6 +32,14 @@
 </head>
 <body>
 
+<!-- Top Banner -->
+<div class="top-banner">Free shipping on orders over Rs.1000 Use code: LINGTONSKIRANA</div>
+
+<!-- Navbar -->
+<%@ include file="/WEB-INF/page/Header.jsp" %>
+
+<!-- Page Content -->
+<main style="padding: 2rem;">
 <h2>Admin - Manage Products</h2>
 
 <!-- Category Filter -->
@@ -45,8 +56,7 @@
 <!-- Add Product Button -->
 <button onclick="document.getElementById('popupForm').style.display='block'">+ Add Product</button>
 
-<!-- Table of Products -->
-<!-- Table of Products -->
+<!-- Product Table -->
 <table border="1" cellpadding="8" style="margin-top: 20px;">
     <tr>
         <th>ID</th><th>Name</th><th>Description</th><th>Price</th><th>Stock</th><th>Category</th><th>Image</th><th>Action</th>
@@ -75,9 +85,7 @@
     </c:forEach>
 </table>
 
-
-<!-- Add Product Form Popup -->
-<!-- Add/Edit Product Form Popup -->
+<!-- Add/Edit Product Popup -->
 <div id="popupForm" class="popup">
     <div class="popup-content">
         <span class="close-btn" onclick="document.getElementById('popupForm').style.display='none'">&times;</span>
@@ -112,6 +120,11 @@
     </div>
 </div>
 
+</main>
+
+<!-- Footer -->
+<%@ include file="/WEB-INF/page/Footer.jsp" %>
+
 <script>
     function openEditPopup(id, name, desc, price, stock, imageUrl, categoryId) {
         document.getElementById('popupForm').style.display = 'block';
@@ -124,10 +137,7 @@
         document.getElementById('imageUrl').value = imageUrl;
         document.getElementById('categoryId').value = categoryId;
     }
-</script>
 
-
-<script>
     window.onclick = function(e) {
         const popup = document.getElementById('popupForm');
         if (e.target === popup) {
