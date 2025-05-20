@@ -46,7 +46,7 @@ public class signincontroller extends HttpServlet {
 
         if (SigninStatus != null && SigninStatus) {
             HttpSession session = req.getSession();
-            session.setAttribute("user", Usermodel);  // Add this for login check
+            session.setAttribute("user", Usermodel);  
             SessionUtil.setAttribute(req, "username", username);
             SessionUtil.setAttribute(req, "role", Usermodel.getRole());
 

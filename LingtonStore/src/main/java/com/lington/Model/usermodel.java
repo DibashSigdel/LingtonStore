@@ -20,6 +20,19 @@ public class usermodel {
         this.username = username;
         this.password = password;
     }
+    public usermodel(int id, String firstName, String lastName, String username, LocalDate dob, String gender,
+            String email, String phoneNumber, String password, String role) {
+this.id = id;
+this.firstName = firstName;
+this.lastName = lastName;
+this.username = username;
+this.dob = dob;
+this.gender = gender;
+this.email = email;
+this.phoneNumber = phoneNumber;
+this.password = password;
+this.role = role;
+}
 
     // Constructor for insert (without ID)
     public usermodel(String firstName, String lastName, String username, LocalDate dob, String gender,

@@ -29,6 +29,10 @@
         <a href="${pageContext.request.contextPath}/AdminDashboard">Admin Dashboard</a>
         <a href="${pageContext.request.contextPath}/AddProductForm">Product Management</a>
       </c:if>
+      <c:if test="${sessionScope.role == 'admin'}">
+  <a href="${pageContext.request.contextPath}/usermanagement">User Management</a>
+</c:if>
+      
       <c:if test="${empty sessionScope.username}">
         <a href="${pageContext.request.contextPath}/signincontroller">Login/Signin</a>
       </c:if>
