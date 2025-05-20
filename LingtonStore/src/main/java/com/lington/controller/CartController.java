@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 
 @WebServlet("/cart")
@@ -68,8 +69,14 @@ public class CartController extends HttpServlet {
             }
 
             session.setAttribute("cart", cart);
-            response.sendRedirect(request.getContextPath() + "/cart");  // ⬅️ key change
 
+            // Handle AJAX response after add
+            if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
+                response.getWriter().write("success");
+                return;
+            }
+
+            response.sendRedirect(request.getContextPath() + "/cart");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -83,6 +90,28 @@ public class CartController extends HttpServlet {
 
         HttpSession session = request.getSession();
         Object user = session.getAttribute("user");
+
+        // AJAX response for drawer cart
+        if ("true".equals(request.getParameter("ajax"))) {
+            List<Cartitemmodel> cart = (List<Cartitemmodel>) session.getAttribute("cart");
+            response.setContentType("text/html;charset=UTF-8");
+
+            try (PrintWriter out = response.getWriter()) {
+                if (cart == null || cart.isEmpty()) {
+                    out.println("<p>Your cart is empty.</p>");
+                } else {
+                    for (Cartitemmodel item : cart) {
+                        double total = item.getQuantity() * item.getProduct().getPrice();
+                        out.println("<div class='cart-item'>");
+                        out.println("<p><strong>" + item.getProduct().getName() + "</strong></p>");
+                        out.println("<p>Qty: " + item.getQuantity() + "</p>");
+                        out.println("<p class='cart-item-total'>" + total + "</p>");
+                        out.println("</div><hr>");
+                    }
+                }
+            }
+            return;
+        }
 
         // Resume pending cart action after login
         String resume = request.getParameter("resume");
