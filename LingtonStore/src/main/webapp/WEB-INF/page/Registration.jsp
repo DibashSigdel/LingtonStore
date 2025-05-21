@@ -11,7 +11,6 @@
 <body>
 
   <!-- Top Banner -->
-  <div class="top-banner">Free shipping on orders over Rs.1000 Use code: LINGTONSKIRANA</div>
 
   <!-- Navbar -->
  <%@ include file="/WEB-INF/page/Header.jsp" %>
@@ -56,10 +55,7 @@
           <label for="Phone">Phone</label>
           <input type="text" id="Phone" name="Phone" required />
         </div>
-         <div class="form-group">
-          <label for="Phone">Role</label>
-<input type="text" id="role" name="role" value="admin" />
-        </div>
+         
 
         <div class="form-group">
           <label for="Password">Password</label>

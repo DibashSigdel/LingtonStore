@@ -11,7 +11,6 @@
 <body>
 
 <!-- Top Banner -->
-<div class="top-banner">Track and manage all customer orders from this dashboard. </div>
 
 <!-- Navbar -->
 <%@ include file="/WEB-INF/page/Header.jsp" %>
@@ -45,7 +44,13 @@
             <td><c:out value="${order.deliveryDate != null ? order.deliveryDate : 'N/A'}"/></td>
             <td>
 			    <button onclick="openOrderForm('${order.orderId}', '${order.paymentStatus}', '${order.shippingStatus}', '${order.deliveryDate}')">Update</button>
+			
+			    <form method="post" action="${pageContext.request.contextPath}/deleteordercontroller" style="display:inline;">
+			        <input type="hidden" name="orderId" value="${order.orderId}" />
+			        <button type="submit" onclick="return confirm('Delete this order?')">Delete</button>
+			    </form>
 			</td>
+
 
         </tr>
     </c:forEach>

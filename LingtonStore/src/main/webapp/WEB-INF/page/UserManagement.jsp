@@ -11,7 +11,6 @@
 <body>
 
 <!-- Top Banner -->
-<div class="top-banner">Free shipping on orders over Rs.1000. Use code: LINGTONSKIRANA</div>
 
 <!-- Navbar -->
 <%@ include file="/WEB-INF/page/Header.jsp" %>
@@ -41,11 +40,19 @@
             <td>${u.phoneNumber}</td>
             <td>${u.role}</td>
             <td>
-                <button type="button" onclick="openUserForm(
-                    '${u.id}', '${u.firstName}', '${u.lastName}', '${u.username}', '${u.dob}',
-                    '${u.gender}', '${u.email}', '${u.phoneNumber}', '${u.password}', '${u.role}'
-                )">Edit</button>
-            </td>
+		    <button type="button" onclick="openUserForm(
+		        '${u.id}', '${u.firstName}', '${u.lastName}', '${u.username}', '${u.dob}',
+		        '${u.gender}', '${u.email}', '${u.phoneNumber}', '${u.password}', '${u.role}'
+		    )">Edit</button>
+		
+		    <!-- Delete User Form -->
+		    <form method="post" action="${pageContext.request.contextPath}/deleteusercontroller" style="display:inline;">
+			    <input type="hidden" name="userId" value="${u.id}" />
+			    <button type="submit" onclick="return confirm('Delete this user?')">Delete</button>
+			</form>
+
+		</td>
+
         </tr>
     </c:forEach>
 </table>

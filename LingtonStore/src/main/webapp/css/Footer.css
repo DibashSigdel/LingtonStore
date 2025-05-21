@@ -1,8 +1,9 @@
 @charset "UTF-8";
+
 .footer {
   background: linear-gradient(to right, #9CAF88, #cddbb7);
   color: #333;
-  padding: 50px 30px 20px;
+  padding: 30px 20px 10px;
   font-family: 'Segoe UI', sans-serif;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -11,26 +12,28 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 30px;
   max-width: 1200px;
   margin: auto;
 }
 
 .footer-section {
   flex: 1;
-  min-width: 180px;
+  min-width: 160px;
 }
 
 .footer-section h4 {
-  font-size: 16px;
+  font-size: 15px;
   color: #444;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .footer-section ul {
   list-style: none;
   padding: 0;
-  line-height: 1.8;
+  margin: 0;
+  line-height: 1.6;
+  font-size: 14px;
 }
 
 .footer-section ul li a {
@@ -44,9 +47,14 @@
 }
 
 .socials a {
-  margin-right: 10px;
+  margin-right: 8px;
   display: inline-block;
   transition: transform 0.3s ease;
+}
+
+.socials a img {
+  width: 20px;
+  height: 20px;
 }
 
 .socials a:hover {
@@ -54,7 +62,7 @@
 }
 
 .sign-btn {
-  padding: 10px 20px;
+  padding: 8px 16px;
   background-color: #fb8c00;
   color: white;
   border: none;
@@ -62,6 +70,7 @@
   cursor: pointer;
   font-weight: 500;
   transition: background-color 0.3s;
+  font-size: 14px;
 }
 
 .sign-btn:hover {
@@ -70,10 +79,8 @@
 
 .footer-bottom {
   text-align: center;
-  padding: 15px 10px;
-  font-size: 14px;
+  padding: 10px 5px;
+  font-size: 13px;
   background: linear-gradient(to right, #9CAF88, #cddbb7);
   color: #222;
 }
-
-

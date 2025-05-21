@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,119 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Us - Lington Store</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Aboutus.css" />
-  <style>
-    .team-section {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-      max-width: 1200px;
-      margin: 40px auto;
-      text-align: center;
-    }
-
-    .team-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      width: calc(20% - 20px);
-      min-width: 220px;
-      box-sizing: border-box;
-      transition: transform 0.3s;
-    }
-
-    .team-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .team-photo {
-      width: 130px;
-      height: 130px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-bottom: 15px;
-      border: 4px solid #0a74da;
-    }
-
-    .team-card h3 {
-      margin-bottom: 10px;
-      font-size: 1.1rem;
-      color: #333;
-    }
-
-    .team-card p {
-      font-size: 0.95rem;
-      color: #555;
-      line-height: 1.5;
-    }
-
-    .top-banner {
-      background-color: #0a74da;
-      color: white;
-      text-align: center;
-      padding: 8px;
-      font-weight: bold;
-    }
-
-    .about-hero {
-      text-align: center;
-      padding: 50px 20px;
-      background-color: #f4f4f4;
-    }
-
-    .about-hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-
-    .about-sections {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      justify-content: center;
-      margin: 60px auto;
-      max-width: 1000px;
-    }
-
-    .about-box {
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      padding: 30px;
-      flex: 1;
-      min-width: 280px;
-    }
-
-    .about-box h2 {
-      color: #0a74da;
-      margin-bottom: 15px;
-    }
-
-    .full-section {
-      max-width: 900px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
-
-    .full-section h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .timeline {
-      padding-left: 20px;
-    }
-
-    .timeline li {
-      margin-bottom: 10px;
-    }
-  </style>
+ 
 </head>
 <body>
 
   <!-- Top Banner -->
-  <div class="top-banner">Free shipping on orders over Rs.1000 Use code: LINGTONSKIRANA</div>
 
   <!-- Navbar -->
   <%@ include file="/WEB-INF/page/Header.jsp" %>
@@ -158,27 +50,30 @@
     <!-- Member Portfolio / Team Cards -->
     <section class="team-section">
       <div class="team-card">
-        <img src="${pageContext.request.contextPath}/images/adrian.jpg" alt="Adrian" class="team-photo" />
+       <img src="${pageContext.request.contextPath}/images/adrian.png" alt="adrian poudyal" class="team-photo" />
+
         <h3>Adrian Poudyal</h3>
         <p>UI/UX lead who designs smooth and engaging user interfaces that elevate the shopping experience on all devices.</p>
       </div>
       <div class="team-card">
-        <img src="${pageContext.request.contextPath}/webapp/images/aayush.jpg" alt="Aayush Sapkota" class="team-photo" />
+        <img src="${pageContext.request.contextPath}/images/aayush.jpg" alt="Aayush Sapkota" class="team-photo" />
         <h3>Aayush Sapkota</h3>
         <p>Backend specialist ensuring secure, scalable, and fast handling of user data, inventory, and payments.</p>
       </div>
+     
+      
       <div class="team-card">
         <img src="${pageContext.request.contextPath}/images/manish.jpg" alt="Manish Lama" class="team-photo" />
         <h3>Manish Lama</h3>
         <p>UI/UX designer dedicated to creating user journeys that are visually pleasing, intuitive, and accessible to all.</p>
       </div>
       <div class="team-card">
-        <img src="${pageContext.request.contextPath}/images/dibash.jpg" alt="Dibash Sigdel" class="team-photo" />
+        <img src="${pageContext.request.contextPath}/images/dibash.png" alt="Dibash Sigdel" class="team-photo" />
         <h3>Dibash Sigdel</h3>
         <p>Operations expert managing eco-friendly deliveries and vendor coordination across the Kathmandu Valley.</p>
       </div>
       <div class="team-card">
-        <img src="${pageContext.request.contextPath}/images/gautam.jpg" alt="Gautam Raj Mandal" class="team-photo" />
+        <img src="${pageContext.request.contextPath}/images/gautam.png" alt="Gautam Raj Mandal" class="team-photo" />
         <h3>Gautam Raj Mandal</h3>
         <p>Handles customer feedback, live support, and helps us constantly adapt the platform to user needs.</p>
       </div>

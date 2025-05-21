@@ -12,8 +12,7 @@
 <body>
 
   <!-- Top Banner -->
-  <div class="top-banner">Free shipping on orders over Rs.1000. Use code: LINGTONSKIRANA</div>
-
+  
   <!-- Navbar -->
   <%@ include file="/WEB-INF/page/Header.jsp" %>
 

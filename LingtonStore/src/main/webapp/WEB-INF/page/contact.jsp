@@ -4,54 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f3f4f6;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .title {
-      font-size: 2.5rem;
-      margin-bottom: 40px;
-      color: #111827;
-    }
-    .contact-info {
-      background: white;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      margin-bottom: 30px;
-    }
-    .contact-info div {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      justify-content: center;
-    }
-    .contact-info i {
-      font-size: 1.5rem;
-      margin-right: 15px;
-      color: #2563eb;
-    }
-    .contact-info span {
-      font-size: 1.1rem;
-      color: #374151;
-    }
-    .map-container iframe {
-      width: 100%;
-      height: 300px;
-      border: 0;
-      border-radius: 16px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-  </style>
+   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Contact.css.css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>

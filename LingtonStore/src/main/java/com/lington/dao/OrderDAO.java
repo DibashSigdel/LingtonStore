@@ -36,6 +36,26 @@ public class OrderDAO {
 
         return orders;
     }
+    public void deleteOrder(int orderId) throws SQLException {
+        // Optional: delete order_items first if you have foreign key constraint
+        String deleteItems = "DELETE FROM order_items WHERE OrderID = ?";
+        String deleteOrder = "DELETE FROM orders WHERE OrderID = ?";
+
+        try (
+            PreparedStatement psItems = conn.prepareStatement(deleteItems);
+            PreparedStatement psOrder = conn.prepareStatement(deleteOrder)
+        ) {
+            psItems.setInt(1, orderId);
+            psItems.executeUpdate(); // clean up items first
+
+            psOrder.setInt(1, orderId);
+            int rows = psOrder.executeUpdate();
+            System.out.println("🗑️ Order deleted: " + rows);
+            if (rows == 0) {
+                throw new SQLException("No order found with ID: " + orderId);
+            }
+        }
+    }
 
     public void saveOrderItems(int orderId, List<Cartitemmodel> items) throws SQLException {
         String sql = "INSERT INTO order_items (OrderID, ProductID, Quantity, Price) VALUES (?, ?, ?, ?)";

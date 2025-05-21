@@ -132,8 +132,8 @@
 /* ✅ Final "View Cart" Floating Button */
 .ViewCart {
   position: fixed;
-  bottom: 5%;
-  right: 5%;
+  bottom: 12%;
+  right: 3%;
   background-color: var(--accent);
   color: white;
   border: none;

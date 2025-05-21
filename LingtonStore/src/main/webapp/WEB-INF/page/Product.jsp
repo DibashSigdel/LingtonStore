@@ -11,7 +11,7 @@
 </head>
 <body>
 
-  <div class="top-banner">Free shipping on orders over Rs.1000 Use code: LINGTONSKIRANA</div>
+  
 
   <%@ include file="/WEB-INF/page/Header.jsp" %>
 
@@ -23,7 +23,7 @@
       <h2>Categories</h2>
       <ul>
         <c:forEach var="cat" items="${categories}">
-          <li><a href="product?category=${cat.id}">${cat.name}</a></li>
+          <li><a  href="product?category=${cat.id}">${cat.name}</a></li>
         </c:forEach>
       </ul>
     </aside>
@@ -58,7 +58,7 @@
           <img src="${product.imageUrl}" alt="Image" />
           <div class="product-details">
           <div style="display:flex; gap:50%;">
-          <h3><a href="productDetail?id=${product.id}">${product.name}</a></h3>
+          <h3><a style="text-decoration:underlined; color:#111;font-size:22px;padding-left:5px;" href="productDetail?id=${product.id}">${product.name}</a></h3>
               <div class="price">Rs. ${product.price}</div>
               </div>
             
