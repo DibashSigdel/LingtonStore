@@ -17,7 +17,7 @@
 
 <h2>Checkout</h2>
 
-<form action="checkout" method="post">
+<form action="${pageContext.request.contextPath}/checkout" method="post">
     <label for="fullname">Full Name</label>
     <input type="text" id="fullname" name="fullname" required>
 

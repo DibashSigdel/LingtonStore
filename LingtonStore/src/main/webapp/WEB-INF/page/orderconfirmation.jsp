@@ -12,16 +12,15 @@
 <html>
 <head>
     <title>Order Confirmation</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 30px; }
-        .container { max-width: 700px; margin: auto; background: #f5f5f5; padding: 20px; border-radius: 8px; }
-        h2 { text-align: center; color: #4CAF50; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 12px; border: 1px solid #ccc; text-align: center; }
-        .summary { margin-top: 20px; font-size: 16px; }
-    </style>
+      <link rel="stylesheet" href="${pageContext.request.contextPath}/css/orderconfirmation.css" />
 </head>
 <body>
+  <!-- Top Banner -->
+  <div class="top-banner">Free shipping on orders over Rs.1000. Use code: LINGTONSKIRANA</div>
+
+  <!-- Navbar -->
+  <%@ include file="/WEB-INF/page/Header.jsp" %>
+  <main>
 <div class="container">
     <h2>Thank You! Your Order Has Been Placed</h2>
 
@@ -42,16 +41,22 @@
         </tr>
         </thead>
         <tbody>
-        <% for (Cartitemmodel item : order.getItems()) { %>
-            <tr>
-                <td><%= item.getProduct().getName() %></td>
-                <td>$<%= item.getProduct().getPrice() %></td>
-                <td><%= item.getQuantity() %></td>
-                <td>$<%= item.getProduct().getPrice() * item.getQuantity() %></td>
-            </tr>
-        <% } %>
+        <% for (Cartitemmodel item : order.getItems()) {
+       if (item.getProduct() == null) continue;
+		%>
+		<tr>
+		    <td><%= item.getProduct().getName() %></td>
+		    <td>$<%= item.getProduct().getPrice() %></td>
+		    <td><%= item.getQuantity() %></td>
+		    <td>$<%= item.getProduct().getPrice() * item.getQuantity() %></td>
+		</tr>
+		<% } %>
+
         </tbody>
     </table>
 </div>
+</main>
+  <!-- Footer -->
+  <%@ include file="/WEB-INF/page/Footer.jsp" %>
 </body>
 </html>
