@@ -26,7 +26,7 @@
       <a href="${pageContext.request.contextPath}/Registration">Register</a>
       <a href="${pageContext.request.contextPath}/AboutUs">About Us</a>
       <c:if test="${sessionScope.role == 'admin'}">
-        <a href="${pageContext.request.contextPath}/AdminDashboard">Dashboard</a>
+        <a href="${pageContext.request.contextPath}/dashboard">Dashboard</a>
         <a href="${pageContext.request.contextPath}/AddProductForm">Inventory</a>
       </c:if>
       <c:if test="${sessionScope.role == 'admin'}">

@@ -1,0 +1,39 @@
+package com.lington.controller;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+
+/**
+ * Servlet implementation class DashboardController
+ */
+@WebServlet("/dashboard")
+public class DashboardController extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    public DashboardController() {
+        super();
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Check role (optional)
+        String role = (String) request.getSession().getAttribute("role");
+        if (role == null || !role.equals("admin")) {
+            response.sendRedirect(request.getContextPath() + "/accessDenied.jsp");
+            return;
+        }
+
+        // Forward to JSP
+        request.getRequestDispatcher("/WEB-INF/page/Adminpannel.jsp").forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
+    }
+}
