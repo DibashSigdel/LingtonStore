@@ -67,15 +67,15 @@
     </div>
 
     <div class="input-field">
-    <label style="margin-right: 10px;">
-        <input type="radio" name="Gender" value="Male" required />
-        Male
-    </label>
-    <label>
-        <input type="radio" name="Gender" value="Female" required />
-        Female
-    </label>
+    <i class="fas fa-venus-mars"></i>
+    <select name="Gender" required style="border: none; background: none; font-weight: 600; font-size: 1.1rem; color: #3b4d3b; width: 100%;">
+        <option value="" disabled selected>Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+    </select>
 </div>
+
 
 
     <div class="input-field">
