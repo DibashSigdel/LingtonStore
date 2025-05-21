@@ -32,6 +32,10 @@
       <c:if test="${sessionScope.role == 'admin'}">
   <a href="${pageContext.request.contextPath}/usermanagement">Users</a>
 </c:if>
+<c:if test="${sessionScope.role == 'admin'}">
+  <a href="${pageContext.request.contextPath}/OrderManagementController">Orders</a>
+</c:if>
+
       
       <c:if test="${empty sessionScope.username}">
         <a href="${pageContext.request.contextPath}/signincontroller">Login/Signin</a>

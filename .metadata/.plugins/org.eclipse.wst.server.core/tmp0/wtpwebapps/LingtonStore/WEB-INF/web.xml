@@ -8,7 +8,7 @@
 
   <!-- Welcome page -->
 <welcome-file-list>
-  <welcome-file>signincontroller</welcome-file>
+  <welcome-file>home</welcome-file>
 </welcome-file-list>
 
 

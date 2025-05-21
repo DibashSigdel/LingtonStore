@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,177 +7,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Grocery Product Page</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/Product.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
-  <!-- Top Banner -->
   <div class="top-banner">Free shipping on orders over Rs.1000 Use code: LINGTONSKIRANA</div>
 
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="navbar-container">
-      <div class="logo"><img src="./Screenshot_2025-04-17_185040-removebg-preview.png" alt="Logo"></div>
-      <nav class="nav-links">
-        <a href="/index.html">Home</a>
-        <a href="/product.html">Shop</a>
-        <a href="./registration.html">Register</a>
-        <a href="/aboutus.html">About Us</a>
-        <a href="/signin.html">Login/Signin</a>
-      </nav>
-      <div class="search">
-        <input type="text" placeholder="Search product">
-      </div>
-    </div>
-  </header>
+  <%@ include file="/WEB-INF/page/Header.jsp" %>
 
-  <!-- Main Layout -->
+  <!-- ✅ Hidden iframe for background cart actions -->
+  <iframe name="cart-action-frame" style="display: none;"></iframe>
+
   <div class="main">
     <aside class="sidebar">
       <h2>Categories</h2>
       <ul>
-        <li>Instant Food & Drinks</li>
-        <li>Fruits and Vegetables</li>
-        <li>Milk & Dairy</li>
-        <li>Kitchen Accessories</li>
-        <li>Extras</li>
+        <c:forEach var="cat" items="${categories}">
+          <li><a href="product?category=${cat.id}">${cat.name}</a></li>
+        </c:forEach>
       </ul>
     </aside>
 
     <div class="container">
-      <div class="product-card">
-        <img src="https://media.self.com/photos/5b6b0b0cbb7f036f7f5cbcfa/4:3/w_2560%2Cc_limit/apples.jpg" />
-        <div class="product-details">
-          <h3>Red Apples</h3>
-          <p>Sweet, crunchy, and packed with nutrients. 1 lb pack.</p>
-          <div class="price">$2.99</div>
-          <button class="btn">Add to Cart</button>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="https://media.self.com/photos/5b6b0b0cbb7f036f7f5cbcfa/4:3/w_2560%2Cc_limit/apples.jpg" />
-        <div class="product-details">
-          <h3>Red Apples</h3>
-          <p>Sweet, crunchy, and packed with nutrients. 1 lb pack.</p>
-          <div class="price">$2.99</div>
-          <button class="btn">Add to Cart</button>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="https://media.self.com/photos/5b6b0b0cbb7f036f7f5cbcfa/4:3/w_2560%2Cc_limit/apples.jpg" />
-        <div class="product-details">
-          <h3>Red Apples</h3>
-          <p>Sweet, crunchy, and packed with nutrients. 1 lb pack.</p>
-          <div class="price">$2.99</div>
-          <button class="btn">Add to Cart</button>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="https://media.self.com/photos/5b6b0b0cbb7f036f7f5cbcfa/4:3/w_2560%2Cc_limit/apples.jpg" />
-        <div class="product-details">
-          <h3>Red Apples</h3>
-          <p>Sweet, crunchy, and packed with nutrients. 1 lb pack.</p>
-          <div class="price">$2.99</div>
-          <button class="btn">Add to Cart</button>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="https://media.self.com/photos/5b6b0b0cbb7f036f7f5cbcfa/4:3/w_2560%2Cc_limit/apples.jpg" />
-        <div class="product-details">
-          <h3>Red Apples</h3>
-          <p>Sweet, crunchy, and packed with nutrients. 1 lb pack.</p>
-          <div class="price">$2.99</div>
-          <button class="btn">Add to Cart</button>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="https://media.self.com/photos/5b6b0b0cbb7f036f7f5cbcfa/4:3/w_2560%2Cc_limit/apples.jpg" />
-        <div class="product-details">
-          <h3>Red Apples</h3>
-          <p>Sweet, crunchy, and packed with nutrients. 1 lb pack.</p>
-          <div class="price">$2.99</div>
-          <button class="btn">Add to Cart</button>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="https://media.self.com/photos/5b6b0b0cbb7f036f7f5cbcfa/4:3/w_2560%2Cc_limit/apples.jpg" />
-        <div class="product-details">
-          <h3>Red Apples</h3>
-          <p>Sweet, crunchy, and packed with nutrients. 1 lb pack.</p>
-          <div class="price">$2.99</div>
-          <button class="btn">Add to Cart</button>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="https://media.self.com/photos/5b6b0b0cbb7f036f7f5cbcfa/4:3/w_2560%2Cc_limit/apples.jpg" />
-        <div class="product-details">
-          <h3>Red Apples</h3>
-          <p>Sweet, crunchy, and packed with nutrients. 1 lb pack.</p>
-          <div class="price">$2.99</div>
-          <button class="btn">Add to Cart</button>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="https://media.self.com/photos/5b6b0b0cbb7f036f7f5cbcfa/4:3/w_2560%2Cc_limit/apples.jpg" />
-        <div class="product-details">
-          <h3>Red Apples</h3>
-          <p>Sweet, crunchy, and packed with nutrients. 1 lb pack.</p>
-          <div class="price">$2.99</div>
-          <button class="btn">Add to Cart</button>
-        </div>
-      </div>
+      <c:if test="${empty products}">
+        <p>No products found in this category.</p>
+      </c:if>
 
-      <div class="product-card">
-        <img src="https://horizon.com/wp-content/uploads/horizon-organic-grassfed-whole-milk-v2-2.png" />
-        <div class="product-details">
-          <h3>Organic Milk</h3>
-          <p>1L full cream milk from local farms. 100% organic.</p>
-          <div class="price">$1.49</div>
-          <button class="btn">Add to Cart</button>
+      <c:forEach var="product" items="${products}">
+        <div class="product-card">
+          <img src="${product.imageUrl}" alt="Image" />
+          <div class="product-details">
+          <div style="display:flex; gap:50%;">
+          <h3><a href="productDetail?id=${product.id}">${product.name}</a></h3>
+              <div class="price">Rs. ${product.price}</div>
+              </div>
+            
+            <p>${product.description}</p>
+        
+            <form action="${pageContext.request.contextPath}/cart" method="post" target="cart-action-frame">
+              <input type="hidden" name="action" value="add" />
+              <input type="hidden" name="productId" value="${product.id}" />
+              <input type="hidden" name="quantity" value="1" />
+              <button type="submit" class="btn">Add to Cart</button>
+            </form>
+          </div>
         </div>
-      </div>
-
-      <div class="product-card">
-        <img src="https://images.squarespace-cdn.com/content/v1/59babd06a8b2b074e84ec171/1526499595917-18JSZY3V8BZK4QRFM4MS/City-Bread-Multigrain-675g.png?format=750w" />
-        <div class="product-details">
-          <h3>Wheat Bread</h3>
-          <p>Soft, fresh, and nutritious. 400g sliced pack.</p>
-          <div class="price">$2.49</div>
-          <button class="btn">Add to Cart</button>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <img src="https://source.unsplash.com/400x300/?vegetables" />
-        <div class="product-details">
-          <h3>Veggie Combo Pack</h3>
-          <p>Assorted seasonal vegetables for a healthy lifestyle.</p>
-          <div class="price">$4.99</div>
-          <button class="btn">Add to Cart</button>
-        </div>
-      </div>
+      </c:forEach>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-logo">
-        <img style="width: 100px;" src="./Screenshot_2025-04-17_185040-removebg-preview.png" alt="Logo">
-      </div>
-      <div class="footer-links">
-        <div><strong>Shop</strong><br>All Products<br>Best Sellers</div>
-        <div><strong>About</strong><br>Our Story<br>Contact Us</div>
-        <div><strong>Help</strong><br>FAQs<br>Shipping Info</div>
-      </div>
-      <div class="footer-right">
-        <h3>Sign in to the store</h3>
-        <a href="./signin.html"><button>Sign In</button></a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 Lington Store. All rights reserved.</p>
-    </div>
-  </footer>
+  <div>
+   <!-- ✅ View Cart Floating Button -->
+<!-- ✅ View Cart Floating Button -->
+<a href="${pageContext.request.contextPath}/cart">
+  <button class="ViewCart">
+    <i class="fa-solid fa-cart-shopping"></i>
+    View Cart
+    <i class="fa-solid fa-arrow-right"></i>
+  </button>
+</a>
 
+  </div>
+
+  <%@ include file="/WEB-INF/page/Footer.jsp" %>
 </body>
 </html>
