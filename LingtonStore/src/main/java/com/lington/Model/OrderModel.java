@@ -24,7 +24,6 @@ public class OrderModel {
         this.items = items;
     }
 
-    // Getters and Setters
     public int getOrderId() { return orderId; }
     public void setOrderId(int orderId) { this.orderId = orderId; }
 

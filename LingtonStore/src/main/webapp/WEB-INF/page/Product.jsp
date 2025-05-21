@@ -57,7 +57,6 @@
         <div class="product-card">
           <img src="${product.imageUrl}" alt="Image" />
           <div class="product-details">
-<<<<<<< Updated upstream
           <div style="display:flex; gap:50%;">
           <h3><a href="productDetail?id=${product.id}">${product.name}</a></h3>
               <div class="price">Rs. ${product.price}</div>
@@ -66,14 +65,7 @@
             <p>${product.description}</p>
         
             <form action="${pageContext.request.contextPath}/cart" method="post" target="cart-action-frame">
-=======
-            <h3><a href="productDetail?id=${product.id}">${product.name}</a></h3>
-            <p>${product.description}</p>
-            <div class="price">Rs. ${product.price}</div>
 
-            <!-- 🛒 Add to cart form -->
-            <form action="${pageContext.request.contextPath}/cart" method="post">
->>>>>>> Stashed changes
               <input type="hidden" name="action" value="add" />
               <input type="hidden" name="productId" value="${product.id}" />
               <input type="hidden" name="quantity" value="1" />
