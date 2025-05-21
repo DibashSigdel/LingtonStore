@@ -23,7 +23,11 @@
     <nav class="nav-links">
       <a href="${pageContext.request.contextPath}/home">Home</a>
       <a href="${pageContext.request.contextPath}/product">Shop</a>
-      <a href="${pageContext.request.contextPath}/Registration">Register</a>
+     
+           <c:if test="${empty sessionScope.username}">
+         <a href="${pageContext.request.contextPath}/Registration">Register</a>
+      
+      </c:if>
       <a href="${pageContext.request.contextPath}/AboutUs">About Us</a>
       <c:if test="${sessionScope.role == 'admin'}">
         <a href="${pageContext.request.contextPath}/dashboard">Dashboard</a>
