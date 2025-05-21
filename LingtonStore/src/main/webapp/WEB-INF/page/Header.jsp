@@ -50,10 +50,10 @@
         </div>
       </c:if>
 
-      <div class="search">
+    <!--   <div class="search">
         <input type="text" placeholder="Search product">
       </div>
-    </div>
+    </div> -->
 
   </div>
 </header>

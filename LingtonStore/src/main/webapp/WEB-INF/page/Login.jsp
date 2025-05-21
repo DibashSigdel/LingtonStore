@@ -43,50 +43,60 @@
 	        String phoneNumber = request.getParameter("Phone");    // Updated to match HTML field name
 	        String password = request.getParameter("Password"); -->
 	        
-				 <form action="signupcontroller" method= "post" class="sign-up-form">
-					<h2 class="title">Sign up</h2>
-					<div class="input-field">
-						<i class="fas fa-user"></i>
-						<input type="text" id="Username" value="Username" name="Username" placeholder="Username" />
-					</div>
-					<div class="input-field">
-						<i class="fas fa-envelope"></i>
-						<input type="text" id="FirstName" name="FirstName" value="FirstName" placeholder="FirstName" />
-					</div>
-					<div class="input-field">
-						<i class="fas fa-envelope"></i>
-						<input type="text" id="LastName" name="LastName" value="LastName" placeholder="LastName" />
-					</div>
-					<div class="input-field">
-						<i class="fas fa-envelope"></i>
-						<input type="date" id="Birthday" name="dob" value="Birthday" placeholder="Birthday" />
-					</div>
-					<div class="input-field">
-						<i class="fas fa-envelope"></i>
-						<input type="text" id="Gender" name="Gender" value="Gender" placeholder="Gender" />
-					</div>
-					<div class="input-field">
-						<i class="fas fa-envelope"></i>
-						<input type="email" id="Email" name="Email" value="Email" placeholder="Email" />
-					</div>
-					<div class="input-field">
-						<i class="fas fa-envelope"></i>
-						<input type="text" id="Phone" name="Phone" value="Phone" placeholder="Phone" />
-					</div>
-					<div class="input-field">
-						<i class="fas fa-lock"></i>
-						<input type="password" id="Password"  name="Password" placeholder="Password" />
-					</div>
-					<div class="input-field">
-					<i class="fas fa-lock"></i>
-		
-						<input type="text" id="role" name="role" value="admin" />
+				 <form action="signupcontroller" method="post" class="sign-up-form">
+    <h2 class="title">Sign up</h2>
 
-					</div>
-					<button type="submit" class="Signupbtn" value="Sign up" >Signup</button>
-			
-					
-				</form> 
+    <div class="input-field">
+        <i class="fas fa-user"></i>
+        <input type="text" id="Username" name="Username" placeholder="Username" />
+    </div>
+
+    <div class="input-field">
+        <i class="fas fa-envelope"></i>
+        <input type="text" id="FirstName" name="FirstName" placeholder="First Name" />
+    </div>
+
+    <div class="input-field">
+        <i class="fas fa-envelope"></i>
+        <input type="text" id="LastName" name="LastName" placeholder="Last Name" />
+    </div>
+
+    <div class="input-field">
+        <i class="fas fa-envelope"></i>
+        <input type="date" id="Birthday" name="dob" />
+    </div>
+
+    <div class="input-field">
+    <label style="margin-right: 10px;">
+        <input type="radio" name="Gender" value="Male" required />
+        Male
+    </label>
+    <label>
+        <input type="radio" name="Gender" value="Female" required />
+        Female
+    </label>
+</div>
+
+
+    <div class="input-field">
+        <i class="fas fa-envelope"></i>
+        <input type="email" id="Email" name="Email" placeholder="Email" />
+    </div>
+
+    <div class="input-field">
+        <i class="fas fa-envelope"></i>
+        <input type="text" id="Phone" name="Phone" placeholder="Phone" />
+    </div>
+
+    <div class="input-field">
+        <i class="fas fa-lock"></i>
+        <input type="password" id="Password" name="Password" placeholder="Password" />
+    </div>
+
+  
+
+    <button type="submit" class="Signupbtn">Signup</button>
+</form>
 			</div>
 		</div>
 

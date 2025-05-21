@@ -142,5 +142,23 @@ public class ProductDao {
         }
         return null;
     }
+// search product ko lagi 
+    public List<productmodel> searchProducts(String keyword) {
+        List<productmodel> products = new ArrayList<>();
+        String sql = "SELECT * FROM product WHERE ProductName LIKE ? OR Description LIKE ?";
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            String searchPattern = "%" + keyword + "%";
+            ps.setString(1, searchPattern);
+            ps.setString(2, searchPattern);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                products.add(mapResultSetToProduct(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return products;
+    }
 
 }

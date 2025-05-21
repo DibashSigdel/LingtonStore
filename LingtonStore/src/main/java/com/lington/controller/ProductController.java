@@ -21,22 +21,33 @@ public class ProductController extends HttpServlet {
             throws ServletException, IOException {
         try {
             String categoryParam = request.getParameter("category");
-            List<productmodel> products;
+            String searchParam = request.getParameter("search");
 
             ProductDao productDao = new ProductDao();
-            if (categoryParam != null && !categoryParam.isEmpty()) {
+            List<productmodel> products;
+
+            if (searchParam != null && !searchParam.trim().isEmpty()) {
+                // 🔍 Search products by keyword
+                products = productDao.searchProducts(searchParam.trim());
+                request.setAttribute("searchQuery", searchParam);
+            } else if (categoryParam != null && !categoryParam.isEmpty()) {
+                // 📂 Filter by category
                 int categoryId = Integer.parseInt(categoryParam);
                 products = productDao.getProductsByCategory(categoryId);
                 request.setAttribute("currentCategoryId", categoryId);
             } else {
+                // 📦 Get all products
                 products = productDao.getAllProducts();
             }
+
             request.setAttribute("products", products);
 
+            // Get categories for sidebar
             CategoryDao categoryDao = new CategoryDao();
             List<categorymodel> categories = categoryDao.getAllCategories();
             request.setAttribute("categories", categories);
 
+            // Forward to JSP
             request.getRequestDispatcher("/WEB-INF/page/Product.jsp").forward(request, response);
 
         } catch (Exception e) {
