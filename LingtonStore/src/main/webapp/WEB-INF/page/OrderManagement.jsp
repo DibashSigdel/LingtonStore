@@ -43,13 +43,56 @@
             <td>${order.shippingStatus}</td>
             <td>${order.orderDate}</td>
             <td><c:out value="${order.deliveryDate != null ? order.deliveryDate : 'N/A'}"/></td>
-            <td><button onclick="alert('Update feature coming soon.')">Update</button></td>
+            <td>
+			    <button onclick="openOrderForm('${order.orderId}', '${order.paymentStatus}', '${order.shippingStatus}', '${order.deliveryDate}')">Update</button>
+			</td>
+
         </tr>
     </c:forEach>
     </tbody>
 </table>
 </div>
 </main>
+<!-- Update Order Popup -->
+<div id="orderFormPopup" class="popup order-popup">
+    <div class="order-popup-content">
+        <span class="order-close-btn" onclick="document.getElementById('orderFormPopup').style.display='none'">&times;</span>
+        <h3>Update Order</h3>
+        <form method="post" action="${pageContext.request.contextPath}/UpdateOrderController">
+            <input type="hidden" name="orderId" id="popupOrderId" />
+
+            <label>Payment Status:</label>
+            <select name="paymentStatus" id="popupPaymentStatus" required>
+                <option value="Pending">Pending</option>
+                <option value="Paid">Paid</option>
+                <option value="Failed">Failed</option>
+            </select>
+
+            <label>Shipping Status:</label>
+            <select name="shippingStatus" id="popupShippingStatus" required>
+                <option value="Pending">Pending</option>
+                <option value="Shipped">Shipped</option>
+                <option value="Delivered">Delivered</option>
+            </select>
+
+            <label>Delivery Date (optional):</label>
+            <input type="date" name="deliveryDate" id="popupDeliveryDate"/>
+
+            <button type="submit">Update Order</button>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    function openOrderForm(orderId, paymentStatus, shippingStatus, deliveryDate) {
+        document.getElementById('popupOrderId').value = orderId;
+        document.getElementById('popupPaymentStatus').value = paymentStatus;
+        document.getElementById('popupShippingStatus').value = shippingStatus;
+        document.getElementById('popupDeliveryDate').value = deliveryDate && deliveryDate !== 'null' ? deliveryDate : '';
+        document.getElementById('orderFormPopup').style.display = 'block';
+    }
+</script>
 
 <!-- Footer -->
 <%@ include file="/WEB-INF/page/Footer.jsp" %>

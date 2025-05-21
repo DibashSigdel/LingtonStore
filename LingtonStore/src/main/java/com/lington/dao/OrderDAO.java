@@ -51,6 +51,20 @@ public class OrderDAO {
             stmt.executeBatch();
         }
     }
+    public void updateOrderStatus(int orderId, String paymentStatus, String shippingStatus, java.sql.Date deliveryDate) throws SQLException {
+        String sql = "UPDATE orders SET PaymentStatus = ?, ShippingStatus = ?, DeliveryDate = ? WHERE OrderID = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, paymentStatus);
+            stmt.setString(2, shippingStatus);
+            if (deliveryDate != null) {
+                stmt.setDate(3, deliveryDate);
+            } else {
+                stmt.setNull(3, Types.DATE);
+            }
+            stmt.setInt(4, orderId);
+            stmt.executeUpdate();
+        }
+    }
 
     public int saveOrder(OrderModel order, String fullname, String email, String address) throws SQLException {
         // Modified SQL statement to match exact database column names

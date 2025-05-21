@@ -38,7 +38,7 @@ select,
 
 /* Buttons */
 button,
-.popup-content button[type="submit"] {
+.popup-content button {
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -63,7 +63,7 @@ button:hover {
     font-size: 22px;
 }
 
-.popup-content button[type="submit"] {
+.popup-content button {
     width: 100%;
     background-color: #FFA726;
     padding: 12px;
@@ -71,7 +71,7 @@ button:hover {
     font-weight: bold;
 }
 
-.popup-content button[type="submit"]:hover {
+.popup-content button:hover {
     background-color: #fb8c00;
 }
 
@@ -163,13 +163,12 @@ td img {
     display: block;
 }
 
-.popup-content input[type="text"],
-.popup-content input[type="number"],
+.popup-content input,
 .popup-content textarea {
     width: 100%;
     padding: 10px;
-    margin-top: 6px;
-    margin-bottom: 12px;
+    margin-top: 3px;
+    margin-bottom: 3px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 14px;
@@ -186,3 +185,97 @@ td img {
         width: 90%;
     }
 }
+
+
+
+/* Order Update Popup Design  */
+
+.order-popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 80px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* Inner box styling */
+.order-popup-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 30px;
+    border-radius: 12px;
+    width: 420px;
+    max-width: 90%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+}
+
+.order-popup-content h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #222;
+}
+
+.order-popup-content label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.order-popup-content input,
+.order-popup-content select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    font-size: 0.95rem;
+}
+
+.order-popup-content input:focus,
+.order-popup-content select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.order-popup-content button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: #FFA726;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.order-popup-content button:hover {
+     background-color: #fb8c00;
+}
+
+/* Close button */
+.order-close-btn {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s;
+}
+
+.order-close-btn:hover {
+    color: #333;
+}
+
