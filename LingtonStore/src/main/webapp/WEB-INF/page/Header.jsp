@@ -29,6 +29,7 @@
       
       </c:if>
       <a href="${pageContext.request.contextPath}/AboutUs">About Us</a>
+      <a href="${pageContext.request.contextPath}/contact">Contact US</a>
       <c:if test="${sessionScope.role == 'admin'}">
         <a href="${pageContext.request.contextPath}/dashboard">Dashboard</a>
         <a href="${pageContext.request.contextPath}/AddProductForm">Inventory</a>
