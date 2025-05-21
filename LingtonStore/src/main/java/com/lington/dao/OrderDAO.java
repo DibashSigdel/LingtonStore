@@ -1,5 +1,6 @@
 package com.lington.dao;
 
+import com.lington.Model.Cartitemmodel;
 import com.lington.Model.OrderModel;
 
 import java.sql.*;
@@ -36,9 +37,60 @@ public class OrderDAO {
         return orders;
     }
 
-    public int saveOrder(OrderModel order, String fullname, String email, String address) throws SQLException {
-		return 0;
-        // full implementation...
+    public void saveOrderItems(int orderId, List<Cartitemmodel> items) throws SQLException {
+        String sql = "INSERT INTO order_items (OrderID, ProductID, Quantity, Price) VALUES (?, ?, ?, ?)";
+
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            for (Cartitemmodel item : items) {
+                stmt.setInt(1, orderId);
+                stmt.setInt(2, item.getProduct().getId());
+                stmt.setInt(3, item.getQuantity());
+                stmt.setDouble(4, item.getProduct().getPrice());
+                stmt.addBatch();
+            }
+            stmt.executeBatch();
+        }
     }
 
+    public int saveOrder(OrderModel order, String fullname, String email, String address) throws SQLException {
+        // Modified SQL statement to match exact database column names
+        String insertOrder = "INSERT INTO orders (User_ID, TotalAmount, PaymentStatus, ShippingStatus, OrderDate, DeliveryDate, Fullname, Email, ShippingAddress) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        
+        try (PreparedStatement stmt = conn.prepareStatement(insertOrder, Statement.RETURN_GENERATED_KEYS)) {
+            stmt.setInt(1, order.getUserId());
+            stmt.setDouble(2, order.getTotalAmount());
+            stmt.setString(3, order.getPaymentStatus());
+            stmt.setString(4, order.getShippingStatus());
+            stmt.setTimestamp(5, new Timestamp(order.getOrderDate().getTime()));
+            stmt.setTimestamp(6, null); // deliveryDate can be updated later
+            stmt.setString(7, fullname);
+            stmt.setString(8, email);
+            stmt.setString(9, address); // This maps to ShippingAddress in the database
+
+            // Debug information
+            System.out.println("Executing SQL: " + insertOrder);
+            System.out.println("Order userId: " + order.getUserId());
+            System.out.println("Order totalAmount: " + order.getTotalAmount());
+
+            int rows = stmt.executeUpdate();
+            if (rows == 0) {
+                throw new SQLException("Creating order failed, no rows affected.");
+            }
+
+            try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    int orderId = generatedKeys.getInt(1);
+                    saveOrderItems(orderId, order.getItems());
+                    System.out.println("Order successfully created with ID: " + orderId);
+                    return orderId;
+                } else {
+                    throw new SQLException("Creating order failed, no ID obtained.");
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Error saving order: " + e.getMessage());
+            e.printStackTrace();
+            throw e;
+        }
+    }
 }
