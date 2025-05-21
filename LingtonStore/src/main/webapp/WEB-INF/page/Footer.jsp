@@ -15,7 +15,7 @@
     <div class="footer-section">
       <h4>Company</h4>
       <ul>
-        <li><a href="#">About Us</a></li>
+        <li><a href="${pageContext.request.contextPath}/AboutUs">About Us</a></li>
         <li><a href="#">Careers</a></li>
         <li><a href="#">Blog</a></li>
       </ul>
@@ -24,7 +24,7 @@
     <div class="footer-section">
       <h4>Support</h4>
       <ul>
-        <li><a href="#">Contact</a></li>
+		<li><a href="${pageContext.request.contextPath}/contact">Contact US</a></li>
         <li><a href="#">FAQs</a></li>
         <li><a href="#">Shipping & Returns</a></li>
       </ul>
