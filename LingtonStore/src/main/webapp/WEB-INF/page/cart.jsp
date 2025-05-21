@@ -6,22 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Your Shopping Cart</title>
-    <style>
-        table { border-collapse: collapse; width: 80%; margin: auto; }
-        th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
-        th { background-color: #f2f2f2; }
-        h2 { text-align: center; }
-        .empty-message { text-align: center; color: gray; margin-top: 50px; }
-        .btn-remove { background: red; color: white; padding: 5px 10px; border: none; cursor: pointer; }
-        /* NEW STYLES */
-        .qty-form { display: inline-flex; align-items: center; gap: 5px; }
-        .qty-btn { 
-            width: 25px; height: 25px; 
-            background: #f0f0f0; border: 1px solid #ddd; 
-            cursor: pointer; 
-        }
-        .qty-input { width: 40px; text-align: center; }
-    </style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/cart.css" />
+   
 </head>
 <body>
 
@@ -81,13 +68,15 @@
     </table>
 <% } %>
 
-<p style="text-align:center; margin-top: 30px;">
-    <a href="product">⬅️ Continue Shopping</a>
-    <!-- NEW: Checkout Button -->
-    <a href="${pageContext.request.contextPath}/checkout" style="margin-left: 20px; background: #4CAF50; color: white; padding: 10px 15px; text-decoration: none;">
-        Checkout ➡️
+<p class="actions">
+    <a href="product">  <i class="fa-solid fa-arrow-left"></i>
+     Continue Shopping</a>
+    <a href="${pageContext.request.contextPath}/checkout" class="checkout-btn">Checkout
+    
+      <i class="fa-solid fa-arrow-right"></i>
     </a>
 </p>
+
 
 </body>
 </html>

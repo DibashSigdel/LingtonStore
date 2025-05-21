@@ -26,11 +26,11 @@
       <a href="${pageContext.request.contextPath}/Registration">Register</a>
       <a href="${pageContext.request.contextPath}/AboutUs">About Us</a>
       <c:if test="${sessionScope.role == 'admin'}">
-        <a href="${pageContext.request.contextPath}/AdminDashboard">Admin Dashboard</a>
-        <a href="${pageContext.request.contextPath}/AddProductForm">Product Management</a>
+        <a href="${pageContext.request.contextPath}/AdminDashboard">Dashboard</a>
+        <a href="${pageContext.request.contextPath}/AddProductForm">Inventory</a>
       </c:if>
       <c:if test="${sessionScope.role == 'admin'}">
-  <a href="${pageContext.request.contextPath}/usermanagement">User Management</a>
+  <a href="${pageContext.request.contextPath}/usermanagement">Users</a>
 </c:if>
       
       <c:if test="${empty sessionScope.username}">

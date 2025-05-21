@@ -21,8 +21,8 @@ public class CartController extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-
         Object user = session.getAttribute("user");
+
         if (user == null) {
             session.setAttribute("pendingCartAction", request.getParameter("action"));
             session.setAttribute("pendingProductId", request.getParameter("productId"));
@@ -70,12 +70,20 @@ public class CartController extends HttpServlet {
 
             session.setAttribute("cart", cart);
 
-            // Handle AJAX response after add
+            // ✅ Handle AJAX requests
             if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
                 response.getWriter().write("success");
                 return;
             }
 
+            // ✅ Redirect conditionally based on form input
+            String redirectTarget = request.getParameter("redirect");
+            if ("product".equals(redirectTarget)) {
+                response.sendRedirect(request.getContextPath() + "/product");
+                return;
+            }
+
+            // Default redirect to cart
             response.sendRedirect(request.getContextPath() + "/cart");
 
         } catch (Exception e) {
@@ -91,7 +99,7 @@ public class CartController extends HttpServlet {
         HttpSession session = request.getSession();
         Object user = session.getAttribute("user");
 
-        // AJAX response for drawer cart
+        // ✅ AJAX drawer cart
         if ("true".equals(request.getParameter("ajax"))) {
             List<Cartitemmodel> cart = (List<Cartitemmodel>) session.getAttribute("cart");
             response.setContentType("text/html;charset=UTF-8");
@@ -113,7 +121,7 @@ public class CartController extends HttpServlet {
             return;
         }
 
-        // Resume pending cart action after login
+        // ✅ Resume pending cart action after login
         String resume = request.getParameter("resume");
         if ("true".equals(resume) && user != null) {
             String action = (String) session.getAttribute("pendingCartAction");
